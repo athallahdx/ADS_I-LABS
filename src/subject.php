@@ -38,20 +38,41 @@
       </div>
     </aside>
 </div>
-    <!-- Main Content -->
-    <main class="flex-1 p-6 ml-64">
-      <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold">Hello! How are you?</h1>
+
+      <header class="flex items-center justify-between ml-64 px-6 pt-6">
+        <h1 class="text-2xl font-bold">Materi Tersedia</h1>
         <div class="flex items-center space-x-4">
           <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
         </div>
       </header>
 
-      <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section class="mt-6 grid grid-cols-1 md:grid-cols-1 gap-6 ml-64 px-6">
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 ml-64">
+      <header class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold">Sistem Operasi</h1>
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+        </div>
+      </header>
+
+      <section class="mt-6 grid grid-cols-1 md:grid-cols-6 gap-6">
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Praktikum Tersedia</h2>
-          <p class="text-gray-400">Semester 1 </p>
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
           <div class="flex items-center justify-between mt-4">
             <div>
               <p class="text-gray-400 text-sm p-5"></p>
@@ -62,22 +83,57 @@
 
         <!-- Overall Information -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Informasi Tugas</h2>
-          <div class="mt-4">
-            <div class="text-gray-400">Projects: <span class="text-yellow-400">28</span></div>
-            <div class="text-gray-400">Completed: <span class="text-orange-400">11</span></div>
-            <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Go To Tasks</button>
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
+            </div>
           </div>
         </div>
 
         <!-- Team Activity -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi</h2>
-          <div class="mt-4">
-            <div class="justify-between items-center">
-              <div class="text-gray-400">Projects: <span class="text-yellow-400">28</span></div>
-              <div class="text-gray-400">Completed: <span class="text-orange-400">11</span></div>
-              <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Go To Subject</button>
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Materi 1</h2>
+          <p class="text-gray-400">Sistem Operasi</p>
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="text-gray-400 text-sm p-5"></p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
             </div>
           </div>
         </div>
