@@ -1,0 +1,160 @@
+/* stylea.css */
+
+/* Styling untuk body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1e1e2f; /* Warna latar belakang gelap */
+  color: #ffffff; /* Warna teks terang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Styling untuk container utama */
+.input {
+  background-color: #2a2a3b; /* Warna latar belakang form */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Styling judul */
+.input h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #e6e6fa; /* Warna teks judul */
+}
+
+/* Styling untuk kotak input */
+.box-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.box-input i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgb(96 165 250); /* Warna ikon */
+  font-size: 18px;
+}
+
+.box-input input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  background-color: #1e1e2f; /* Warna latar belakang input */
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.box-input input:focus {
+  border-color: rgb(96 165 250); /* Warna border saat fokus */
+}
+
+/* Styling untuk tombol login */
+.btn-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(96 165 250); /* Warna tombol */
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-input:hover {
+  background-color: #6666cc; /* Warna tombol saat hover */
+}
+
+/* Styling untuk teks bawah */
+.bottom {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.bottom a {
+  color: rgb(96 165 250); /* Warna link */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bottom a:hover {
+  color: #6666cc; /* Warna link saat hover */
+}
+
+/* Styling untuk pop-up */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #2a2a3b; /* Warna latar belakang pop-up */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px;
+  z-index: 1000;
+  display: none;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.popup .close-btn {
+  text-align: right;
+}
+
+.popup .close-btn button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.popup .close-btn button:hover {
+  color: #ffffff; /* Warna ikon close saat hover */
+}
+
+.popup p {
+  margin: 10px 0;
+  font-size: 1rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Styling overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
