@@ -13,29 +13,31 @@
   <!-- Sidebar -->
   <div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
-      <div>
-        <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
-        <nav class="space-y-2 mt-28">
+    <div>
+    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
+
+    <nav class="space-y-2 mt-28">
           <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Courses
+            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
           </a>
           <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> My Tasks
+            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Discussion
+          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Grades
+          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span>  Subject
+          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
           </a>
         </nav>
+    </div>
 
-      <div class="p-4">
+    <div class="p-4">
         <button class="py-2 px-4 w-full bg-gray-700 rounded-md">Light / Dark</button>
-      </div>
+    </div>
     </aside>
 </div>
     <!-- Main Content -->
@@ -150,7 +152,7 @@
               <td class="p-4">11 September 2001</td>
               <td class="p-4 text-green-500">Hadir</td>
             </tr>
-          </tbody>
+      </tbody>
         </table>
     </main>
   </div>
