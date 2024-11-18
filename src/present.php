@@ -13,7 +13,11 @@
     <div>
     <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
 
+
     <nav class="space-y-2 mt-28">
+          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+          </a>
           <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
           </a>
@@ -33,7 +37,9 @@
     </div>
 
     <div class="p-4">
-        <button class="py-2 px-4 w-full bg-gray-700 rounded-md">Light / Dark</button>
+        <a href="index.php">
+        <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
+        </a>
     </div>
     </aside>
 </div>
@@ -54,7 +60,7 @@
       <section class="mt-6 bg-gray-800 p-6 rounded-lg shadow">
         <div class="flex justify-between">
           <div>
-            <h3 class="text-xl font-bold">Algoritma Pemograman - Shift C</h3>
+            <h3 class="text-xl font-bold">Sistem Operasi - Shift C</h3>
             <p class="text-gray-500">Pertemuan 4</p>
           </div>
           <div class="text-right">

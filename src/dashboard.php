@@ -12,35 +12,37 @@
   <!-- Sidebar -->
   <div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
-      <div>
-        <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
-        <nav class="space-y-2 mt-28">
+    <div>
+    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
+
+
+    <nav class="space-y-2 mt-28">
           <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-              <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
           </a>
           <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Courses
+            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
           </a>
           <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> My Tasks
+            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Discussion
+          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Grades
+          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
           </a>
-          <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span>  Subject
+          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
           </a>
         </nav>
+    </div>
 
-      </div>
-      <div class="p-4">
+    <div class="p-4">
         <a href="index.php">
-          <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
+        <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
         </a>
-      </div>
+    </div>
     </aside>
 </div>
     <!-- Main Content -->
@@ -103,28 +105,28 @@
           </thead>
           <tbody>
             <tr>
-              <td class="p-4">Algoritma Pemograman</td>
+              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">11 September 2001</td>
               <td class="p-4">Bikin Iterasi</td>
               <td class="p-4 text-yellow-400">Not Yet</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
-              <td class="p-4">Algoritma Pemograman</td>
+              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">11 September 2001</td>
               <td class="p-4">Bikin Iterasi</td>
               <td class="p-4 text-yellow-400">Not Yet</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
-              <td class="p-4">Algoritma Pemograman</td>
+              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">11 September 2001</td>
               <td class="p-4">Bikin Iterasi</td>
               <td class="p-4 text-yellow-400">Not Yet</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
-              <td class="p-4">Algoritma Pemograman</td>
+              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">11 September 2001</td>
               <td class="p-4">Bikin Iterasi</td>
               <td class="p-4 text-yellow-400">Not Yet</td>
@@ -149,7 +151,7 @@
           </thead>
           <tbody>
             <tr>
-              <td class="p-4">Algoritma Pemograman</td>
+              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">Shift C</td>
               <td class="p-4">Pertemuan 1</td>
               <td class="p-4">11 September 2001</td>

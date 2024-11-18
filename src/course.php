@@ -127,7 +127,7 @@
             </thead>
             <tbody>
                 <tr>
-                <td class="p-4">Algoritma Pemograman</td>
+                <td class="p-4">Sistem Operasi</td>
                 <td class="p-4">Bikin robot</td>
                 </tr>
             </tbody>
@@ -143,7 +143,7 @@
             </thead>
             <tbody>
                 <tr>
-                <td class="p-4">Algoritma Pemograman</td>
+                <td class="p-4">Sistem Operasi</td>
                 <td class="p-4">Looping</td>
                 </tr>
             </tbody>

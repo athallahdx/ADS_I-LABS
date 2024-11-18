@@ -16,7 +16,11 @@
     <div>
     <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
 
+
     <nav class="space-y-2 mt-28">
+          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+          </a>
           <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
           </a>
@@ -36,7 +40,9 @@
     </div>
 
     <div class="p-4">
-        <button class="py-2 px-4 w-full bg-gray-700 rounded-md">Light / Dark</button>
+        <a href="index.php">
+        <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
+        </a>
     </div>
     </aside>
 </div>
