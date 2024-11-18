@@ -15,28 +15,27 @@
     <div>
     <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
 
-        <nav class="space-y-2 mt-28">
-        <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
-        </a>
-        <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Courses
-        </a>
-        <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> My Tasks
-        </a>
-        <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Discussion
-        </a>
-        <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Grades
-        </a>
-        <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span>  Subject
-        </a>
-        </nav>
 
-        
+    <nav class="space-y-2 mt-28">
+          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+          </a>
+          <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
+          </a>
+          <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
+          </a>
+          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
+          </a>
+          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
+          </a>
+          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
+          </a>
+        </nav>
     </div>
 
     <div class="p-4">
@@ -50,7 +49,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
     <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold">Course yang Tersedia</h1>
+        <h1 class="text-2xl font-bold">Praktikum Tersedia</h1>
         <div class="flex items-center space-x-4">
         <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
         </div>

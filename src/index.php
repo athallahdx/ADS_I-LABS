@@ -107,8 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </style>
 </head>
-
-
 <body>
   
     <div class="input">
@@ -140,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="close-btn">
             <button onclick="closePopup()">×</button>
         </div>
+
         <p><?= htmlspecialchars($message) ?></p>
     </div>
 
