@@ -108,7 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 
+
 <body>
+  
     <div class="input">
         <h1>LOGIN</h1>
         <form action="" method="POST">
@@ -128,6 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </form>
     </div>
+
 
     <!-- Overlay -->
     <div id="overlay" class="overlay" onclick="closePopup()"></div>
