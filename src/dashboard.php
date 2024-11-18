@@ -58,22 +58,18 @@
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-4">
           <h2 class="text-xl font-bold">Praktikum Tersedia</h2>
-          <p class="text-gray-400">Semester 1 </p>
-          <div class="flex items-center justify-between mt-4">
-            <div>
-              <p class="text-gray-400 text-sm p-5"></p>
-              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button>
-            </div>
+          <p class="text-gray-400 mt-5">Sistem Operasi</p>
+          <p class="text-gray-400">Struktur Data</p>
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
           </div>
-        </div>
 
         <!-- Overall Information -->
         <div class="bg-gray-800 rounded-lg p-4">
           <h2 class="text-xl font-bold">Informasi Tugas</h2>
           <div class="mt-4">
-            <div class="text-gray-400">Projects: <span class="text-yellow-400">28</span></div>
-            <div class="text-gray-400">Completed: <span class="text-orange-400">11</span></div>
-            <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Go To Tasks</button>
+            <div class="text-gray-400">Selesai: <span class="text-yellow-400">3</span></div>
+            <div class="text-gray-400">Belum Selesai: <span class="text-orange-400">2</span></div>
+            <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
           </div>
         </div>
 
@@ -82,9 +78,9 @@
           <h2 class="text-xl font-bold">Materi</h2>
           <div class="mt-4">
             <div class="justify-between items-center">
-              <div class="text-gray-400">Projects: <span class="text-yellow-400">28</span></div>
-              <div class="text-gray-400">Completed: <span class="text-orange-400">11</span></div>
-              <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Go To Subject</button>
+              <div class="text-gray-400">Diunduh: <span class="text-yellow-400">3</span></div>
+              <div class="text-gray-400">Belum diunduh: <span class="text-orange-400">2</span></div>
+              <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
             </div>
           </div>
         </div>
@@ -92,7 +88,7 @@
 
       <!-- Task Activity Table -->
       <section class="mt-6">
-        <h2 class="text-xl font-bold">Task Activity</h2>
+        <h2 class="text-xl font-bold">Tugas Tersedia</h2>
         <table class="w-full mt-4 bg-gray-800 rounded-lg">
           <thead>
             <tr class="text-gray-400">
@@ -106,30 +102,30 @@
           <tbody>
             <tr>
               <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">11 September 2001</td>
-              <td class="p-4">Bikin Iterasi</td>
-              <td class="p-4 text-yellow-400">Not Yet</td>
+              <td class="p-4">20 Desember 2024</td>
+              <td class="p-4">Buat Folder</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
               <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">11 September 2001</td>
-              <td class="p-4">Bikin Iterasi</td>
-              <td class="p-4 text-yellow-400">Not Yet</td>
+              <td class="p-4">24 Desember 2024</td>
+              <td class="p-4">Buat File</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">11 September 2001</td>
-              <td class="p-4">Bikin Iterasi</td>
-              <td class="p-4 text-yellow-400">Not Yet</td>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">20 November 2024</td>
+              <td class="p-4">Buat Stack</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td class="p-4">-</td>
             </tr>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">11 September 2001</td>
-              <td class="p-4">Bikin Iterasi</td>
-              <td class="p-4 text-yellow-400">Not Yet</td>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">22 Desember 2024</td>
+              <td class="p-4">Buat Queue</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td class="p-4">-</td>
             </tr>
             <!-- Repeat rows as needed -->
@@ -154,7 +150,7 @@
               <td class="p-4">Sistem Operasi</td>
               <td class="p-4">Shift C</td>
               <td class="p-4">Pertemuan 1</td>
-              <td class="p-4">11 September 2001</td>
+              <td class="p-4">10 November 2024</td>
               <td class="p-4 text-green-500">Hadir</td>
             </tr>
           </tbody>

@@ -74,7 +74,46 @@
         <input
           id="message-input"
           type="text"
-          placeholder="Write a new reply or start a new discussion..."
+          placeholder="Write a new reply..."
+          class="flex-1 bg-gray-700 text-gray-300 rounded-md p-2 focus:outline-none"
+        />
+        <button
+          id="send-button"
+          class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Send
+        </button>
+      </div>
+
+      <header class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold mt-2">Struktur Data - Mengenai Tugas 2</h1>
+      </header>
+
+      <!-- Discussion Area -->
+      <div id="discussion-area" class="bg-gray-800 rounded-lg p-4 mb-4">
+        <div class="space-y-4">
+          <!-- Existing Messages -->
+          <div>
+            <p class="font-semibold">Dimas Kendika <span class="text-gray-400 text-sm">09:52 PM</span></p>
+            <p class="text-gray-300">Halo, di tugas 2 ini kita disuruh untuk buat apa ya?</p>
+          </div>
+          <div>
+            <p class="font-semibold">Sellyjuan Alya <span class="text-gray-400 text-sm">10:00 PM</span></p>
+            <p class="text-gray-300">Halo, jadi kita disuruh untuk membuat struktur data queue</p>
+          </div>
+          <div>
+            <p class="font-semibold">Nadzare Kafah <span class="text-gray-400 text-sm">11:52 PM</span></p>
+            <p class="text-gray-300">Dan nanti akan dikumpulkan </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Input -->
+      <div class="flex items-center bg-gray-800 rounded-lg p-4">
+        <input
+          id="message-input"
+          type="text"
+          placeholder="Write a new reply..."
           class="flex-1 bg-gray-700 text-gray-300 rounded-md p-2 focus:outline-none"
         />
         <button

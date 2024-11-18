@@ -58,15 +58,15 @@
         <div class="bg-gray-800 rounded-lg p-4 flex justify-evenly">
           <div class="p-5 text-center">
             <h2 class="text-xl font-bold">Diunduh</h2>
-            <p class="text-6xl text-green-500 p-5">10</p>
+            <p class="text-6xl text-green-500 p-5">5</p>
           </div>
           <div class="p-5 text-center">
             <h2 class="text-xl font-bold">Belum diunduh</h2>
-            <p class=" text-red-500 text-6xl p-5">10</p>
+            <p class=" text-red-500 text-6xl p-5">5</p>
           </div>
           <div class="p-5 text-center">
             <h2 class="text-xl font-bold">Total Materi</h2>
-            <p class="text-white text-6xl p-5">20</p>
+            <p class="text-white text-6xl p-5">10</p>
           </div>
           </div>
       </section>
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 2</h2>
           <p class="text-gray-400 ">Sistem Operasi</p>
           <img src="../public/img/pdf.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -96,7 +96,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 3</h2>
           <p class="text-gray-400 ">Sistem Operasi</p>
           <img src="../public/img/pdf.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -104,7 +104,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 4</h2>
           <p class="text-gray-400 ">Sistem Operasi</p>
           <img src="../public/img/pdf.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -112,7 +112,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 5</h2>
           <p class="text-gray-400 ">Sistem Operasi</p>
           <img src="../public/img/pdf.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -138,7 +138,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 2</h2>
           <p class="text-gray-400 ">Struktur Data</p>
           <img src="../public/img/docs.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -146,7 +146,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 3</h2>
           <p class="text-gray-400 ">Struktur Data</p>
           <img src="../public/img/docs.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -154,7 +154,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 4</h2>
           <p class="text-gray-400 ">Struktur Data</p>
           <img src="../public/img/docs.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">
@@ -162,7 +162,7 @@
           </div>
         </div>
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Materi 1</h2>
+          <h2 class="text-xl font-bold">Materi 5</h2>
           <p class="text-gray-400 ">Struktur Data</p>
           <img src="../public/img/docs.png" alt="" class="w-[130px] h-auto m-auto p-5">
           <div class="flex justify-end">

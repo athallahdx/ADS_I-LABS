@@ -55,3 +55,17 @@ CREATE TABLE asprak (
     password VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID_asprak),
 );
+
+insert into praktikum VALUES (
+    '1', 'Sistem Operasi', 'A', 'Senin', '08:00', 'Jehian'),
+    ('2', 'Sistem Operasi', 'B', 'Selasa', '08:00', 'Jehian'),
+    ('3', 'Sistem Operasi', 'C', 'Rabu', '08:00', 'Fawwaz'),
+    ('4', 'Sistem Operasi', 'D', 'Kamis', '08:00', 'Fawwaz'),
+    ('5', 'Sistem Operasi', 'E', 'Jumat', '08:00', 'Hendra'),
+    ('6', 'Sistem Operasi', 'F', 'Sabtu', '08:00', 'Hendra'),
+    ('7', 'Struktur Data', 'A', 'Senin', '13:00', 'Luthfi'),
+    ('8', 'Struktur Data', 'B', 'Selasa', '13:00', 'Luthfi'),
+    ('9', 'Struktur Data', 'C', 'Rabu', '13:00', 'Renggo'),
+    ('10', 'Struktur Data', 'D', 'Kamis', '13:00', 'Renggo'),
+    ('11', 'Struktur Data', 'E', 'Jumat', '13:00', 'Athallah'),
+    ('12', 'Struktur Data', 'F', 'Sabtu', '13:00', 'Athallah');

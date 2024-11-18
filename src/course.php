@@ -128,7 +128,7 @@
             <tbody>
                 <tr>
                 <td class="p-4">Sistem Operasi</td>
-                <td class="p-4">Bikin robot</td>
+                <td class="p-4">Buat Folder</td>
                 </tr>
             </tbody>
             </table>
@@ -144,7 +144,7 @@
             <tbody>
                 <tr>
                 <td class="p-4">Sistem Operasi</td>
-                <td class="p-4">Looping</td>
+                <td class="p-4">Command CD dan MD</td>
                 </tr>
             </tbody>
             </table>

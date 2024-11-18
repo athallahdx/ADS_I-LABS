@@ -68,37 +68,37 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <!-- Repeat rows as needed -->
-        </tbody>
-      </table>
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">20 Desember 2024</td>
+              <td class="p-4">Buat Folder</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">24 Desember 2024</td>
+              <td class="p-4">Buat File</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">20 Desember 2024</td>
+              <td class="p-4">Buat Folder</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">24 Desember 2024</td>
+              <td class="p-4">Buat File</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <!-- Repeat rows as needed -->
+          </tbody>
+        </table>
     </section>
     <header class="flex items-center justify-between">
       <h1 class="text-2xl font-bold mt-5">Struktur Data</h1>
@@ -117,34 +117,34 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
-          <tr>
-            <td class="p-4">Sistem Operasi</td>
-            <td class="p-4">11 September 2001</td>
-            <td class="p-4">Bikin Iterasi</td>
-            <td class="p-4 text-yellow-400">Not Yet</td>
-            <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Go To Course</button></td>
-          </tr>
+        <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">20 November 2024</td>
+              <td class="p-4">Buat Stack</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">22 Desember 2024</td>
+              <td class="p-4">Buat Queue</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">20 November 2024</td>
+              <td class="p-4">Buat Stack</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">22 Desember 2024</td>
+              <td class="p-4">Buat Queue</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
           <!-- Repeat rows as needed -->
         </tbody>
       </table>

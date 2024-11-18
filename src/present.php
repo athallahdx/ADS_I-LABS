@@ -65,7 +65,7 @@
           </div>
           <div class="text-right">
             <p class="text-gray-500">Waktu Pertemuan</p>
-            <p>12 Juli 2022 | 09:00 - 10:30 WIB</p>
+            <p>20 November 2024 | 08.00 - 10.00 WIB</p>
             <span class="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">Sedang Berlangsung</span>
           </div>
         </div>
