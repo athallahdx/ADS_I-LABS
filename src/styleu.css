@@ -1,0 +1,92 @@
+/* styleu.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1e1e2f; /* Warna latar belakang gelap */
+  color: #ffffff; /* Warna teks terang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.input {
+  background-color: #2a2a3b; /* Warna latar belakang form */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box; /* Pastikan konten tidak keluar */
+}
+
+.input h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #e6e6fa; /* Warna teks judul */
+}
+
+.box-input {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%; /* Sesuaikan lebar dengan kontainer */
+}
+
+.box-input i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: rgb(96 165 250); /* Warna ikon */
+  font-size: 18px;
+}
+
+.box-input input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 2px solid #444;
+  border-radius: 5px;
+  background-color: #1e1e2f; /* Warna latar belakang input */
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box; /* Pastikan padding masuk dalam ukuran elemen */
+  transition: border-color 0.3s;
+}
+
+.box-input input:focus {
+  border-color: rgb(96 165 250); /* Warna border saat fokus */
+}
+
+.btn-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(96 165 250); /* Warna tombol */
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-input:hover {
+  background-color: #6666cc; /* Warna tombol saat hover */
+}
+
+.bottom {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.bottom a {
+  color: rgb(96 165 250); /* Warna link */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bottom a:hover {
+  color: #6666cc; /* Warna link saat hover */
+}
