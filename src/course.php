@@ -14,7 +14,7 @@
 <div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
-        <div class="p-4 font-bold text-blue-400 mt-10 text-3xl">ILABS</div>
+    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
 
         <nav class="space-y-2 mt-28">
         <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
@@ -24,7 +24,7 @@
             <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> My Tasks
         </a>
         <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Statistics
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Discussion
         </a>
         <a href="#" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Grades
