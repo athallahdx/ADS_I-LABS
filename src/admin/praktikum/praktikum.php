@@ -1,12 +1,12 @@
 <?php
-  include '../koneksi.php';
+  include './koneksi.php';
 
   if (isset($_POST['submit'])) {
     $nama = $_POST['name'];
     $nim = $_POST['nim'];
     $praktikum = $_POST['praktikum'];
 
-    $query = "INSERT INTO praktikum (Nama_praktikum, NIM, ID_Praktikum) VALUES ('$nama', '$nim', '$praktikum')";
+    $query = "INSERT INTO praktikum (Nama_praktikan, NIM, ID_praktikum) VALUES ('$nama', '$nim', '$praktikum')";
     $result = mysqli_query($conn, $query);
 
     if ($result) {
@@ -73,15 +73,16 @@
           <!-- Form Kehadiran -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
             <form action="#" method="POST" class="mt-4">    
-                <label for="name" class="block text-gray-500">Nama Praktikan:</label>
+                <label for="name" class="block text-gray-500">Nama Praktikum:</label>
                 <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
 
-                <label for="nim" class="block text-gray-500">NIM:</label>
+                <label for="nim" class="block text-gray-500">Shift:</label>
                 <input type="text" id="nim" name="nim" class="w-full p-2 mt-2 border rounded text-black">
 
-                <label for="praktikum" class="block text-gray-500">Praktikum:</label>
+                <label for="praktikum" class="block text-gray-500">Hari:</label>
                 <input type="text" id="praktikum" name="praktikum" class="w-full p-2 mt-2 border rounded text-black">
 
+                <input type="">
               <button type="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Tambah</button>
             </form>
           </div>

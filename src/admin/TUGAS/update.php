@@ -1,25 +1,19 @@
 <?php
-    include '../koneksi.php';
+include("koneksi.php");
 
-    if (isset($_POST['submit'])) {
-        $nama = $_POST['name'];
-        $deskripsi = $_POST['deskripsi'];
-        $deadline = $_POST['deadline'];
-        $status = $_POST['status'];
-        $praktikum = $_POST['praktikum'];
+$id = $_GET['id'];
 
-        $query = "INSERT INTO tugas (Nama_tugas, Deskripsi, Deadline, Status, ID_praktikum) VALUES ('$nama', '$deskripsi', '$deadline', '$status', '$praktikum')";
-        $result = mysqli_query($conn, $query);
+// Ambil data berdasarkan ID
+$query = "SELECT * FROM tugas WHERE ID_tugas = '$id'";
+$result = mysqli_query($conn, $query);
+$data = mysqli_fetch_array($result);
 
-        if ($result) {
-            header("Location: tugas.php");
-            exit();
-        } else {
-            echo "Error: " . mysqli_error($conn);
-        }
-    }
+if (!$data) {
+    echo "Data tidak ditemukan.";
+    exit;
+    
+}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,34 +63,62 @@
 
 <main class="flex-1 p-6 ml-64">
 <header class="flex items-center justify-between">
-        <h1 class="text-4xl font-bold p-4">Tambah Tugas</h1>
+        <h1 class="text-4xl font-bold p-4">Update Tugas</h1>
     </header>
 
     <section class=" bg-gray-800 p-6 rounded-lg shadow">
-          <!-- Form Kehadiran -->
+          
           <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-            <form action="#" method="POST" class="mt-4">    
-                <label for="name" class="block text-gray-500">Nama Tugas:</label>
-                <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
 
-                <label for="deskripsi" class="block text-gray-500">Deskripsi:</label>
-                <input type="text" id="deskripsi" name="deskripsi" class="w-full p-2 mt-2 border rounded text-black">
+            <form action="tugas.php?id=<?php echo $data['ID_tugas']; ?>" method="POST" class="mt-4">
+
+                <label for="id" class="block text-gray-500">ID:</label>
+                <input type="text" id="id" name="id" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['ID_tugas']; ?> readonly">
+
+                <label for="name" class="block text-gray-500">Nama Tugas:</label>
+                <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['Nama_tugas']; ?>">
 
                 <label for="deadline" class="block text-gray-500">Deadline:</label>
-                <input type="date" id="deadline" name="deadline" class="w-full p-2 mt-2 border rounded text-black">
+                <input type="text" id="deadline" name="deadline" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['Deadline']; ?>">
 
                 <label for="status" class="block text-gray-500">Status:</label>
                 <select name="status" id="status" class="w-full p-2 mt-2 border rounded text-black">
-                    <option value="Belum Selesai">Belum Selesai</option>
-                    <option value="Selesai">Selesai</option>
+                    <option value="Belum Selesai" <?php echo $data['Status'] == 'Belum Selesai' ? 'selected' : ''; ?>>Belum Selesai</option>
+                    <option value="Selesai" <?php echo $data['Status'] == 'Selesai' ? 'selected' : ''; ?>>Selesai</option>
                 </select>
 
-                <label for="praktikum" class="block text-gray-500">Praktikum:</label>
-                <input type="text" id="praktikum" name="praktikum" class="w-full p-2 mt-2 border rounded text-black">
 
-        
-              <button type="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Tambah</button>
+                <label for="praktikum" class="block text-gray-500">Praktikum:</label>
+                <input type="text" id="praktikum" name="praktikum" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['ID_praktikum']; ?>">
+
+              <button name="update" id="update" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Update</button>
             </form>
+
+            <?php
+            if (isset($_POST['update'])) {
+                $id = $_POST['id'];
+                $name = $_POST['name'];
+                $deadline = $_POST['deadline'];
+                $status = $_POST['status'];
+                $praktikum = $_POST['praktikum'];
+
+                $updateQuery = "UPDATE tugas 
+                SET Nama_tugas = '$name', 
+                    Deadline = '$deadline', 
+                    Status = '$status', 
+                    ID_praktikum = '$praktikum' 
+                WHERE ID_tugas = '$id'";
+
+                $updateResult = mysqli_query($conn, $updateQuery);
+
+                if ($updateResult) {
+                    header("Location: update.php");
+                    exit();
+                }else{
+                    echo "Error: " . mysqli_error($conn);
+                }
+                }
+                ?>
           </div>
         </div>
       </section>

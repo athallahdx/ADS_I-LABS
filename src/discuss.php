@@ -47,7 +47,7 @@
     <!-- Main Discussion Area -->
     <main class="flex-1 bg-gray-900 p-6 ml-64">
       <header class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-bold">Sistem Operasi - Mengenai Tugas 1</h1>
+        <h1 class="text-2xl font-bold">Sistem Operasi</h1>
       </header>
 
       <!-- Discussion Area -->
@@ -86,7 +86,7 @@
       </div>
 
       <header class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-bold mt-2">Struktur Data - Mengenai Tugas 2</h1>
+        <h1 class="text-2xl font-bold mt-2">Struktur Data</h1>
       </header>
 
       <!-- Discussion Area -->

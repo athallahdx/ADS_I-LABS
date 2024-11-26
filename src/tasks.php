@@ -1,3 +1,19 @@
+<?php
+session_start();
+include 'koneksi.php';
+
+$query = "SELECT Nama_tugas, Deadline, Status, Nama_praktikum FROM tugas JOIN praktikum ON tugas.ID_praktikum = praktikum.ID_praktikum";
+$result = mysqli_query($conn, $query);
+while ($data = mysqli_fetch_array($result)){
+  $praktikum = $data['Nama_praktikum'];
+  $deadline = $data['Deadline'];
+  $tugas = $data['Nama_tugas'];
+  $status = $data['Status'];
+};
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +77,6 @@
         <thead>
           <tr class="text-gray-400">
             <th class="text-left p-4">Judul Tugas</th>
-            <th class="text-left p-4">Deskripsi</th>
             <th class="text-left p-4">Deadline</th>
             <th class="text-left p-4">Status</th>
             <th class="text-left p-4">Submit</th>
@@ -69,34 +84,29 @@
         </thead>
         <tbody>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">20 Desember 2024</td>
-              <td class="p-4">Buat Folder</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4"><?php echo $tugas; ?></td>
+              <td class="p-4"><?php echo $deadline; ?></td>
+              <td class="p-4 text-yellow-400"><?php echo $status; ?></td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">24 Desember 2024</td>
               <td class="p-4">Buat File</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
-              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
-            </tr>
-            <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">20 Desember 2024</td>
-              <td class="p-4">Buat Folder</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
-              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
-            </tr>
-            <tr>
-              <td class="p-4">Sistem Operasi</td>
               <td class="p-4">24 Desember 2024</td>
-              <td class="p-4">Buat File</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>
-            <!-- Repeat rows as needed -->
+            <tr>
+              <td class="p-4">Buat Folder</td>
+              <td class="p-4">20 Desember 2024</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
+            <tr>
+              <td class="p-4">Buat File</td>
+              <td class="p-4">24 Desember 2024</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
+            </tr>
           </tbody>
         </table>
     </section>
@@ -110,7 +120,6 @@
         <thead>
           <tr class="text-gray-400">
             <th class="text-left p-4">Judul Tugas</th>
-            <th class="text-left p-4">Deskripsi</th>
             <th class="text-left p-4">Deadline</th>
             <th class="text-left p-4">Status</th>
             <th class="text-left p-4">Submit</th>
@@ -118,30 +127,26 @@
         </thead>
         <tbody>
         <tr>
-              <td class="p-4">Struktur Data</td>
+          <td class="p-4">Buat Stack</td>
               <td class="p-4">20 November 2024</td>
-              <td class="p-4">Buat Stack</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>
             <tr>
-              <td class="p-4">Struktur Data</td>
-              <td class="p-4">22 Desember 2024</td>
               <td class="p-4">Buat Queue</td>
+              <td class="p-4">22 Desember 2024</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>
             <tr>
-              <td class="p-4">Struktur Data</td>
+              <td class="p-4">Buat Stack</td>
               <td class="p-4">20 November 2024</td>
-              <td class="p-4">Buat Stack</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>
             <tr>
-              <td class="p-4">Struktur Data</td>
-              <td class="p-4">22 Desember 2024</td>
               <td class="p-4">Buat Queue</td>
+              <td class="p-4">22 Desember 2024</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
               <td><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button></td>
             </tr>

@@ -47,14 +47,14 @@
     </aside>
 </div>
 
-      <header class="flex items-center justify-between ml-64 px-6 pt-6">
+      <!-- <header class="flex items-center justify-between ml-64 px-6 pt-6">
         <h1 class="text-2xl font-bold">Materi Tersedia</h1>
         <div class="flex items-center space-x-4">
           <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
         </div>
-      </header>
+      </header> -->
 
-      <section class="mt-6 grid grid-cols-1 md:grid-cols-1 gap-6 ml-64 px-6">
+      <!-- <section class="mt-6 grid grid-cols-1 md:grid-cols-1 gap-6 ml-64 px-6">
         <div class="bg-gray-800 rounded-lg p-4 flex justify-evenly">
           <div class="p-5 text-center">
             <h2 class="text-xl font-bold">Diunduh</h2>
@@ -69,7 +69,7 @@
             <p class="text-white text-6xl p-5">10</p>
           </div>
           </div>
-      </section>
+      </section> -->
 
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">

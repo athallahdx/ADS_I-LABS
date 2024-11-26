@@ -1,12 +1,12 @@
 <?php
-    include '../koneksi.php';  
+    include 'koneksi.php';  
 
     if (isset($_POST['submit'])) {
+        $id = $_POST['id'];
         $nama = $_POST['name'];
-        $bab = $_POST['BAB'];
         $praktikum = $_POST['praktikum'];
 
-        $query = "INSERT INTO materi (Nama_materi, BAB, ID_praktikum) VALUES ('$nama', '$bab', '$praktikum')";
+        $query = "INSERT INTO materi (ID_materi, Nama_materi, ID_praktikum) VALUES ('$id','$nama', '$praktikum')";
         $result = mysqli_query($conn, $query);
 
         if ($result) {
@@ -23,7 +23,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas</title>
+    <title>Materi</title>
     <script src="https://cdn.tailwindcss.com"></script>  
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -66,27 +66,91 @@
 
 <main class="flex-1 p-6 ml-64">
 <header class="flex items-center justify-between">
-        <h1 class="text-4xl font-bold p-4">Tambah Tugas</h1>
+        <h1 class="text-4xl font-bold p-4">Tambah Materi</h1>
     </header>
 
     <section class=" bg-gray-800 p-6 rounded-lg shadow">
           <!-- Form Kehadiran -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
             <form action="#" method="POST" class="mt-4">    
+                <label for="id" class="block text-gray-500">ID:</label>
+                <input type="text" id="id" name="id" class="w-full p-2 mt-2 border rounded text-black">
+
                 <label for="name" class="block text-gray-500">Nama Materi:</label>
                 <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
-
-                <label for="BAB" class="block text-gray-500">BAB:</label>
-                <input type="text" id="BAB" name="BAB" class="w-full p-2 mt-2 border rounded text-black">
 
                 <label for="praktikum" class="block text-gray-500">Praktikum:</label>
                 <input type="text" id="praktikum" name="praktikum" class="w-full p-2 mt-2 border rounded text-black">
 
-              <button type="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Tambah</button>
+              <button id="submit" name="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Tambah</button>
             </form>
           </div>
         </div>
       </section>
+
+      <header class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Sistem Operasi</h1>
+    </header>
+
+    <!-- Task Activity Table -->
+    <section class="mt-6">
+      <table class="w-full mt-4 bg-gray-800 rounded-lg">
+        <thead>
+          <tr class="text-gray-400">
+            <th class="text-left p-4">ID</th>
+            <th class="text-left p-4">Nama Materi</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+        
+        include("koneksi.php");
+        $read = mysqli_query($conn, "SELECT * FROM materi WHERE ID_praktikum = '1' ORDER BY ID_materi DESC");
+        
+        while ($data = mysqli_fetch_array($read)) 
+        {
+            echo "<tr>";
+            echo "<td>" .$data['ID_materi']."</td>";
+            echo "<td>" .$data['Nama_materi']."</td>";
+            echo "<td> <a href='update.php?id=$data[ID_materi]'>EDIT</a>
+            | <a href='delete.php?id=$data[ID_materi]'>HAPUS</a></td></tr>";
+        }
+        ?>
+          </tbody>
+        </table>
+    </section>
+    <header class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold mt-5">Struktur Data</h1>
+    </header>
+
+    <!-- Task Activity Table -->
+    <section class="mt-6">
+      <table class="w-full mt-4 bg-gray-800 rounded-lg">
+        <thead>
+          <tr class="text-gray-400">
+            <th class="text-left p-4">ID</th>
+            <th class="text-left p-4">Nama Materi</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php 
+        
+        include("koneksi.php");
+        $read = mysqli_query($conn, "SELECT * FROM materi WHERE ID_praktikum = '2' ORDER BY ID_materi DESC");
+        
+        while ($data = mysqli_fetch_array($read)) 
+        {
+            echo "<tr>";
+            echo "<td>" .$data['ID_materi']."</td>";
+            echo "<td>" .$data['Nama_materi']."</td>";
+            echo "<td> <a href='update.php?id=$data[ID_materi]'>EDIT</a>
+            | <a href='delete.php?id=$data[ID_materi]'>HAPUS</a></td></tr>";
+        }
+        ?>
+        </tbody>
+      </table>
+    </section>
+
       </main>
 
 </body>

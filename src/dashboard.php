@@ -1,3 +1,9 @@
+<?php
+session_start();
+include 'koneksi.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +54,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold">Hello! How are you?</h1>
+        <h1 class="text-2xl font-bold">Hello! How are you <?php echo $_SESSION['namalengkap'];?>?</h1>
         <div class="flex items-center space-x-4">
           <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
         </div>
@@ -57,19 +63,34 @@
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Praktikum Tersedia</h2>
-          <p class="text-gray-400 mt-5">Sistem Operasi</p>
-          <p class="text-gray-400">Struktur Data</p>
+          <h2 class="text-xl font-bold mb-5">Praktikum Tersedia</h2>
+          <?php 
+          $query = "SELECT Nama_praktikum, Shift FROM praktikum";
+          $result = mysqli_query($conn, $query);
+          while ($row = mysqli_fetch_array($result)) {
+          ?>
+          <p class="text-gray-400"><?php echo $row['Nama_praktikum'] . ' - ' . 'shift ' . $row['Shift']?></p>
+          <?php } ?>
+          
+              <a href="course.php">
               <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
+              </a>
           </div>
 
         <!-- Overall Information -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold">Informasi Tugas</h2>
+          <h2 class="text-xl font-bold">Tugas</h2>
           <div class="mt-4">
-            <div class="text-gray-400">Selesai: <span class="text-yellow-400">3</span></div>
-            <div class="text-gray-400">Belum Selesai: <span class="text-orange-400">2</span></div>
+            <?php
+            $query = "SELECT COUNT(*) AS total_tugas FROM tugas";
+            $result = mysqli_query($conn, $query);  
+            $row = mysqli_fetch_assoc($result);
+            $totalTugas = $row['total_tugas'];
+            ?>
+            <div class="text-gray-400 mb-5">Tugas Tersedia: <span class="text-yellow-400"><?php echo $totalTugas; ?></span></div>
+            <a href="tasks.php">
             <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
+            </a>
           </div>
         </div>
 
@@ -78,13 +99,31 @@
           <h2 class="text-xl font-bold">Materi</h2>
           <div class="mt-4">
             <div class="justify-between items-center">
-              <div class="text-gray-400">Diunduh: <span class="text-yellow-400">3</span></div>
-              <div class="text-gray-400">Belum diunduh: <span class="text-orange-400">2</span></div>
+              <?php 
+              $query = "SELECT COUNT(*) AS total_materi FROM materi"; 
+              $result = mysqli_query($conn, $query);
+              $row = mysqli_fetch_assoc($result);
+              $totalMateri = $row['total_materi'];
+              ?>
+              <div class="text-gray-400 mb-5">Materi Tersedia: <span class="text-yellow-400"><?php echo $totalMateri; ?></span></div>
+              <a href="subject.php">
               <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
+              </a>
             </div>
           </div>
         </div>
       </section>
+
+            <?php
+            $query = "SELECT Nama_praktikum, Deadline, Nama_tugas, Status FROM tugas JOIN praktikum ON tugas.ID_praktikum = praktikum.ID_praktikum";  
+            $result = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_array($result)) {
+            $praktikum = $row['Nama_praktikum'];
+            $deadline = $row['Deadline'];
+            $tugas = $row['Nama_tugas'];
+            $status = $row['Status'];
+            }
+            ?>
 
       <!-- Task Activity Table -->
       <section class="mt-6">
@@ -101,10 +140,10 @@
           </thead>
           <tbody>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">20 Desember 2024</td>
-              <td class="p-4">Buat Folder</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4"><?php echo $praktikum; ?></td>
+              <td class="p-4"><?php echo $deadline; ?></td>
+              <td class="p-4"><?php echo $tugas; ?></td>
+              <td class="p-4 text-yellow-400"><?php echo $status; ?></td>
               <td class="p-4">-</td>
             </tr>
             <tr>
@@ -149,8 +188,8 @@
             <tr>
               <td class="p-4">Sistem Operasi</td>
               <td class="p-4">Shift C</td>
-              <td class="p-4">Pertemuan 1</td>
-              <td class="p-4">10 November 2024</td>
+              <td class="p-4">Pertemuan 4</td>
+              <td class="p-4">20 November 2024</td>
               <td class="p-4 text-green-500">Hadir</td>
             </tr>
           </tbody>

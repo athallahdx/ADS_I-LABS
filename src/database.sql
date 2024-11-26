@@ -1,6 +1,6 @@
-CREATE DATABASE db_inf;
+CREATE DATABASE db_inflabs;
 
-USE latihan_1;
+USE db_inflabs;
 
 CREATE TABLE `tbl_users` (
     `namalengkap` varchar(50),
@@ -22,11 +22,10 @@ CREATE TABLE praktikum (
 );
 
 CREATE TABLE praktikan (
-    ID_praktikan INT NOT NULL AUTO_INCREMENT,
-    Nama_praktikan VARCHAR(50) NOT NULL,
     NIM CHAR(9) NOT NULL,
+    Nama_praktikan VARCHAR(50) NOT NULL,
     ID_praktikum INT NOT NULL,
-    PRIMARY KEY (ID_praktikan),
+    PRIMARY KEY (NIM),
     FOREIGN KEY (ID_praktikum) REFERENCES praktikum(ID_praktikum)
 );  
 

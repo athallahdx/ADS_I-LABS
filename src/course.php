@@ -1,3 +1,23 @@
+<?php
+include 'koneksi.php';
+
+session_start();
+
+
+
+    $query = "SELECT Nama_praktikum, Shift, Hari, Jam, Asprak, Count(Nama_tugas) AS tugas_tersedia, Count(Nama_materi) AS materi_tersedia FROM praktikum JOIN tugas ON praktikum.ID_praktikum = tugas.ID_praktikum JOIN materi ON praktikum.ID_praktikum = materi.ID_praktikum GROUP BY Nama_praktikum";
+    $result = mysqli_query($conn, $query);  
+    while ($row = mysqli_fetch_array($result)) {
+    $praktikum = $row['Nama_praktikum'];
+    $shift = $row['Shift'];
+    $hari = $row['Hari'];
+    $jam = $row['Jam'];
+    $asprak = $row['Asprak'];
+    $tugas = $row['tugas_tersedia'];
+    $materi = $row['materi_tersedia'];
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,8 +78,8 @@
     <section class="mt-6 grid grid-cols-1 md:grid-cols-2  gap-6">
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-7">
-        <h2 class="text-xl font-bold">Sistem Operasi</h2>
-        <p class="text-gray-400">Semester 2 </p>
+        <h2 class="text-xl font-bold"><?php echo $praktikum; ?></h2>
+        <p class="text-gray-400">Shift <?php echo $shift; ?> </p>
         <img src="../public/img/sistem operasi.webp" alt="" class="w-[600px] h-[210px] object-cover mt-5">
         <div class="flex items-center justify-between mt-4">
             <div>
@@ -70,7 +90,7 @@
 
         <div class="bg-gray-800 rounded-lg p-7">
         <h2 class="text-xl font-bold">Struktur Data</h2>
-        <p class="text-gray-400">Semester 2 </p>
+        <p class="text-gray-400">Shift C </p>
         <img src="../public/img/strukdat.jpg" alt="" class="w-[600px] h-[210px] object-center object-cover mt-5">
         <div class="flex items-center justify-between mt-4">
             <div>
@@ -81,76 +101,41 @@
 
     </section>
 
-    <header class="flex items-center justify-between" >
-        <h1 class="text-2xl font-bold mt-5">Praktikum yang Telah Diikuti</h1>
-    </header>
 
-    <section class="mt-6 grid grid-cols-1 md:grid-cols-2  gap-6">
-        <!-- Project Card -->
-        <div class="bg-gray-800 rounded-lg p-7">
-        <h2 class="text-xl font-bold">Algoritma Pemrograman</h2>
-        <p class="text-gray-400">Shift C</p>
-        <img src="../public/img/alpro.jpg" alt="" class="w-[600px] h-[210px] object-cover mt-5">
-        <div class="flex items-center justify-between mt-4">
-            <div>
-            <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Detail</button>
-            </div>
-        </div>
-        </div>
+    <div id="details" 
+    class="bg-gray-800 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg p-7 w-1/2 z-10 hidden">
+    <h1 class="text-2xl font-bold text-center"><?php echo $praktikum ?></h1>
+    <h3>Shift: <?php echo $shift ?></h3>
+    <h3>Hari: <?php echo $hari ?> </h3>
+    <h3>Pukul: <?php echo $jam ?></h3>
+    <h3>Asprak: <?php echo $asprak ?></h3>
+    <h3>Tugas Tersedia: <?php echo $tugas ?></h3>
+    <h3>Materi Tersedia: <?php echo $materi ?></h3>
+</div>
 
-        <div class="bg-gray-800 rounded-lg p-7">
-        <h2 class="text-xl font-bold">Basis Data</h2>
-        <p class="text-gray-400">Shift C</p>
-        <img src="../public/img/basis data.jpg" alt="" class="w-[600px] h-[210px] object-center object-cover mt-5">
-        <div class="flex items-center justify-between mt-4">
-            <div>
-            <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Detail</button>
-            </div>
-        </div>
-        </div>
 
-    </section>
-
-    <section class="mt-6">
-        <h2 class="text-xl font-bold">Progress</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <h3 class="text-lg font-bold mt-2">Tugas</h3>
-            <h3 class="text-lg font-bold mt-2">Materi</h3>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <table class="w-full mt-4 bg-gray-800 rounded-lg">
-            <thead>
-                <tr class="text-gray-400">
-                <th class="text-left p-4">Praktikum</th>
-                <th class="text-left p-4">Tugas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td class="p-4">Sistem Operasi</td>
-                <td class="p-4">Buat Folder</td>
-                </tr>
-            </tbody>
-            </table>
-
-            
-            <table class="w-full mt-4 bg-gray-800 rounded-lg">
-            <thead>
-                <tr class="text-gray-400">
-                <th class="text-left p-4">Praktikum</th>
-                <th class="text-left p-4">Materi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td class="p-4">Sistem Operasi</td>
-                <td class="p-4">Command CD dan MD</td>
-                </tr>
-            </tbody>
-            </table>
+    
         </div>
     </main>
 </div>
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll('button.bg-teal-500');
+        const detailsDiv = document.getElementById('details');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (detailsDiv.classList.contains('hidden')) {
+                    detailsDiv.classList.remove('hidden'); // Tampilkan div
+                } else {
+                    detailsDiv.classList.add('hidden'); // Sembunyikan div
+                }
+            });
+        });
+    });
+</script>
+
 </html>

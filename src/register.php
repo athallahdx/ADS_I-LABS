@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -7,6 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prodi = $_POST["prodi"];
     $email = $_POST["email"];
     $password = $_POST["password"];
+
+    //MASUKAN DATA KE SESSION
+    $_SESSION['namalengkap'] = $namalengkap;
+    $_SESSION['nim'] = $nim;
+    $_SESSION['prodi'] = $prodi;
+    $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
+
 
     // Insert data ke tabel dengan prepared statement untuk mencegah SQL Injection
     $query_sql = "INSERT INTO db_inflabs.tbl_users (namalengkap, nim, prodi, email, password) VALUES (?, ?, ?, ?, ?)";

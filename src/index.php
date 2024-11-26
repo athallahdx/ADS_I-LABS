@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'koneksi.php';
 
 $message = ""; // Variabel untuk menyimpan pesan kesalahan
@@ -7,13 +8,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Menggunakan prepared statements untuk mencegah SQL Injection
+    // Menggunakan prepared statement untuk mencegah SQL Injection
     $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE email = ? AND password = ?");
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
+        // Ambil data pengguna
+        $user = $result->fetch_assoc();
+
+        // Simpan data ke dalam session
+        $_SESSION['namalengkap'] = $user['namalengkap'];
+        $_SESSION['nim'] = $user['nim'];
+        $_SESSION['prodi'] = $user['prodi'];
+        $_SESSION['email'] = $user['email'];
+
+        // Redirect ke halaman dashboard
         header("Location: dashboard.php");
         exit();
     } else {
@@ -21,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
