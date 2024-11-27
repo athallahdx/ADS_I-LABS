@@ -51,7 +51,7 @@
       </header>
 
       <!-- Discussion Area -->
-      <div id="discussion-area" class="bg-gray-800 rounded-lg p-4 mb-4">
+      <div id="discussion-area-1" class="bg-gray-800 rounded-lg p-4 mb-4">
         <div class="space-y-4">
           <!-- Existing Messages -->
           <div>
@@ -63,7 +63,7 @@
             <p class="text-gray-300">Halo, bagian mananya ya?</p>
           </div>
           <div>
-            <p class="font-semibold">Dimas Kendika <span class="text-gray-400 text-sm">11:52 PM</span></p>
+            <p class="font-semibold">M Edwi <span class="text-gray-400 text-sm">11:52 PM</span></p>
             <p class="text-gray-300">Di tugas 1 ini kita diminta untuk membuat folder dengan menggunakan cmd atau terminal.</p>
           </div>
         </div>
@@ -71,18 +71,18 @@
 
       <!-- Message Input -->
       <div class="flex items-center bg-gray-800 rounded-lg p-4">
-        <input
-          id="message-input"
+      <input
+          id="message-input-1"
           type="text"
           placeholder="Write a new reply..."
           class="flex-1 bg-gray-700 text-gray-300 rounded-md p-2 focus:outline-none"
         />
         <button
-          id="send-button"
+          id="send-button-1"
           class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
         >
           Send
-        </button>
+      </button>
       </div>
 
       <header class="flex items-center justify-between mb-6">
@@ -90,11 +90,11 @@
       </header>
 
       <!-- Discussion Area -->
-      <div id="discussion-area" class="bg-gray-800 rounded-lg p-4 mb-4">
+      <div id="discussion-area-2" class="bg-gray-800 rounded-lg p-4 mb-4">
         <div class="space-y-4">
           <!-- Existing Messages -->
           <div>
-            <p class="font-semibold">Dimas Kendika <span class="text-gray-400 text-sm">09:52 PM</span></p>
+            <p class="font-semibold">Nadzare Kafah <span class="text-gray-400 text-sm">09:52 PM</span></p>
             <p class="text-gray-300">Halo, di tugas 2 ini kita disuruh untuk buat apa ya?</p>
           </div>
           <div>
@@ -102,7 +102,7 @@
             <p class="text-gray-300">Halo, jadi kita disuruh untuk membuat struktur data queue</p>
           </div>
           <div>
-            <p class="font-semibold">Nadzare Kafah <span class="text-gray-400 text-sm">11:52 PM</span></p>
+            <p class="font-semibold">M Edwi <span class="text-gray-400 text-sm">11:52 PM</span></p>
             <p class="text-gray-300">Dan nanti akan dikumpulkan </p>
           </div>
         </div>
@@ -110,14 +110,14 @@
 
       <!-- Message Input -->
       <div class="flex items-center bg-gray-800 rounded-lg p-4">
-        <input
-          id="message-input"
+      <input
+          id="message-input-2"
           type="text"
           placeholder="Write a new reply..."
           class="flex-1 bg-gray-700 text-gray-300 rounded-md p-2 focus:outline-none"
         />
         <button
-          id="send-button"
+          id="send-button-2"
           class="ml-4 px-4 py-2 bg-blue-500 text-white rounded-md"
         >
           Send
@@ -127,32 +127,34 @@
   </div>
 
   <script>
-    // Mendapatkan elemen DOM yang dibutuhkan
-    const messageInput = document.getElementById('message-input');
-    const sendButton = document.getElementById('send-button');
-    const discussionArea = document.getElementById('discussion-area');
+    // Fungsi untuk menangani pengiriman pesan
+function handleSendMessage(inputId, buttonId, discussionId) {
+  const messageInput = document.getElementById(inputId);
+  const sendButton = document.getElementById(buttonId);
+  const discussionArea = document.getElementById(discussionId);
 
-    // Fungsi untuk menambahkan pesan ke area diskusi
-    sendButton.addEventListener('click', function() {
-      const messageText = messageInput.value.trim(); // Ambil nilai input
-      if (messageText !== '') {
-        const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Waktu sekarang
+  sendButton.addEventListener('click', function () {
+    const messageText = messageInput.value.trim();
+    if (messageText !== '') {
+      const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        // Membuat elemen pesan baru
-        const newMessage = document.createElement('div');
-        newMessage.innerHTML = `
-          <p class="font-semibold">You <span class="text-gray-400 text-sm">${currentTime}</span></p>
-          <p class="text-gray-300">${messageText}</p>
-        `;
-        newMessage.classList.add('mt-4'); // Tambahkan margin atas pada pesan baru
+      const newMessage = document.createElement('div');
+      newMessage.innerHTML = `
+        <p class="font-semibold">You <span class="text-gray-400 text-sm">${currentTime}</span></p>
+        <p class="text-gray-300">${messageText}</p>
+      `;
+      newMessage.classList.add('mt-4');
 
-        // Menambahkan pesan baru ke area diskusi
-        discussionArea.appendChild(newMessage);
+      discussionArea.appendChild(newMessage);
+      messageInput.value = '';
+    }
+  });
+}
 
-        // Bersihkan input setelah mengirim pesan
-        messageInput.value = '';
-      }
-    });
+// Hubungkan fungsi dengan elemen spesifik
+handleSendMessage('message-input-1', 'send-button-1', 'discussion-area-1');
+handleSendMessage('message-input-2', 'send-button-2', 'discussion-area-2');
+
   </script>
 </body>
 </html>

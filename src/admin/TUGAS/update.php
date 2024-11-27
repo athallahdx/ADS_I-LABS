@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include("koneksi.php");
 
 $id = $_GET['id'];
@@ -73,7 +73,7 @@ if (!$data) {
             <form action="tugas.php?id=<?php echo $data['ID_tugas']; ?>" method="POST" class="mt-4">
 
                 <label for="id" class="block text-gray-500">ID:</label>
-                <input type="text" id="id" name="id" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['ID_tugas']; ?> readonly">
+                <input type="text" id="id" name="id" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['ID_tugas']; ?>"  readonly>
 
                 <label for="name" class="block text-gray-500">Nama Tugas:</label>
                 <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black" value="<?php echo $data['Nama_tugas']; ?>">
@@ -125,4 +125,4 @@ if (!$data) {
       </main>
 
 </body>
-</html>
+</html> -->

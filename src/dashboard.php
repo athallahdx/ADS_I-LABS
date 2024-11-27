@@ -54,10 +54,7 @@ include 'koneksi.php';
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold">Hello! How are you <?php echo $_SESSION['namalengkap'];?>?</h1>
-        <div class="flex items-center space-x-4">
-          <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
-        </div>
+        <h1 class="text-2xl font-bold py-5">Hello! How are you <?php echo $_SESSION['namalengkap'];?>?</h1>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -127,7 +124,7 @@ include 'koneksi.php';
 
       <!-- Task Activity Table -->
       <section class="mt-6">
-        <h2 class="text-xl font-bold">Tugas Tersedia</h2>
+        <h2 class="text-xl font-bold pt-7">Tugas Tersedia</h2>
         <table class="w-full mt-4 bg-gray-800 rounded-lg">
           <thead>
             <tr class="text-gray-400">
@@ -135,7 +132,6 @@ include 'koneksi.php';
               <th class="text-left p-4">Deadline</th>
               <th class="text-left p-4">Task</th>
               <th class="text-left p-4">Status</th>
-              <th class="text-left p-4">Grade</th>
             </tr>
           </thead>
           <tbody>
@@ -144,28 +140,24 @@ include 'koneksi.php';
               <td class="p-4"><?php echo $deadline; ?></td>
               <td class="p-4"><?php echo $tugas; ?></td>
               <td class="p-4 text-yellow-400"><?php echo $status; ?></td>
-              <td class="p-4">-</td>
             </tr>
             <tr>
               <td class="p-4">Sistem Operasi</td>
               <td class="p-4">24 Desember 2024</td>
               <td class="p-4">Buat File</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
-              <td class="p-4">-</td>
             </tr>
             <tr>
               <td class="p-4">Struktur Data</td>
               <td class="p-4">20 November 2024</td>
               <td class="p-4">Buat Stack</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
-              <td class="p-4">-</td>
             </tr>
             <tr>
               <td class="p-4">Struktur Data</td>
               <td class="p-4">22 Desember 2024</td>
               <td class="p-4">Buat Queue</td>
               <td class="p-4 text-yellow-400">Belum Selesai</td>
-              <td class="p-4">-</td>
             </tr>
             <!-- Repeat rows as needed -->
           </tbody>
@@ -173,7 +165,7 @@ include 'koneksi.php';
       </section>
 
       <section class="mt-6">
-        <h2 class="text-xl font-bold">Kehadiran</h2>
+        <h2 class="text-xl font-bold pt-5">Kehadiran</h2>
         <table class="w-full mt-4 bg-gray-800 rounded-lg">
           <thead>
             <tr class="text-gray-400">

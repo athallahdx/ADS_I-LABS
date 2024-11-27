@@ -70,9 +70,6 @@ session_start();
     <main class="flex-1 p-6 ml-64">
     <header class="flex items-center justify-between">
         <h1 class="text-2xl font-bold">Praktikum Tersedia</h1>
-        <div class="flex items-center space-x-4">
-        <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
-        </div>
     </header>
 
     <section class="mt-6 grid grid-cols-1 md:grid-cols-2  gap-6">
