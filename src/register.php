@@ -2,25 +2,35 @@
 session_start();
 require 'koneksi.php';
 
+$role = "Praktikan";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $namalengkap = $_POST["namalengkap"];
     $nim = $_POST["nim"];
     $prodi = $_POST["prodi"];
     $email = $_POST["email"];
+    $username = $_POST["username"];
     $password = $_POST["password"];
 
+    // Validasi password
+    if ($password !== $_POST["confirmpw"]) {
+        echo "Password tidak sesuai";
+        exit();
+    }
+
     //MASUKAN DATA KE SESSION
+    $_SESSION['role'] = $role;
     $_SESSION['namalengkap'] = $namalengkap;
     $_SESSION['nim'] = $nim;
     $_SESSION['prodi'] = $prodi;
     $_SESSION['email'] = $email;
+    $_SESSION['username'] = $username;
     $_SESSION['password'] = $password;
 
-
     // Insert data ke tabel dengan prepared statement untuk mencegah SQL Injection
-    $query_sql = "INSERT INTO db_inflabs.tbl_users (namalengkap, nim, prodi, email, password) VALUES (?, ?, ?, ?, ?)";
+    $query_sql = "INSERT INTO ilabs.user (username, fullname, nim, prodi, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query_sql);
-    mysqli_stmt_bind_param($stmt, "sssss", $namalengkap, $nim, $prodi, $email, $password);
+    mysqli_stmt_bind_param($stmt, "sssssss",  $username, $namalengkap, $nim, $prodi, $email, $password, $role);
 
     if (mysqli_stmt_execute($stmt)) {
         header("Location: index.php");
@@ -57,7 +67,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="box-input">
                 <i class="fas fa-graduation-cap"></i>
-                <input type="text" name="prodi" placeholder="Program Studi" required>
+                    <input type="radio" id="inf" name="prodi" value="Informatika" required>
+                    <label for="inf">Informatika</label>
+                    <input type="radio" id="tekkom" name="prodi" value="Teknik Komputer" required>
+                    <label for="tekkom">Teknik Komputer</label>
             </div>
             <div class="box-input">
                 <i class="fas fa-envelope-open-text"></i>
@@ -65,7 +78,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <div class="box-input">
                 <i class="fas fa-lock"></i>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="box-input">
+                <i class="fas fa-lock"></i>
                 <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="box-input">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirmpw" placeholder="Confirm Password" required>
             </div>
             <button type="submit" name="register" class="btn-input">Register</button>
             <div class="bottom">

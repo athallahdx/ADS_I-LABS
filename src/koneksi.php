@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "db_inflabs";
+$database = "ilabs";
 $username = "root";
 $password = "";
 

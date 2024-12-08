@@ -7,12 +7,18 @@ $message = ""; // Variabel untuk menyimpan pesan kesalahan
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST["email"];
     $password = $_POST["password"];
+    $role = "Praktikan";
 
     // Menggunakan prepared statement untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT * FROM tbl_users WHERE email = ? AND password = ?");
-    $stmt->bind_param("ss", $email, $password);
+    $stmt = $conn->prepare("SELECT * FROM user WHERE (email = ? OR username = ?) AND password = ? AND role = 'Praktikan'");
+    $stmt->bind_param("sss", $email, $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    if ($role !== "Praktikan") {
+        $message = "Anda bukan praktikan.";
+        exit();
+    } 
 
     if ($result->num_rows > 0) {
         // Ambil data pengguna
@@ -23,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nim'] = $user['nim'];
         $_SESSION['prodi'] = $user['prodi'];
         $_SESSION['email'] = $user['email'];
+        $_SESSION['username'] = $user['username'];
 
         // Redirect ke halaman dashboard
         header("Location: dashboard.php");
@@ -124,7 +131,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form action="" method="POST">
             <div class="box-input">
                 <i class="fas fa-envelope-open-text"></i>
-                <input type="text" name="email" placeholder="Email" required>
+                <input type="text" name="email" placeholder="Email or Username" required>
             </div>
             <div class="box-input">
                 <i class="fas fa-lock"></i>
