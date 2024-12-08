@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['password'] = $password;
 
     // Insert data ke tabel dengan prepared statement untuk mencegah SQL Injection
-    $query_sql = "INSERT INTO ilabs.user (username, fullname, nim, prodi, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $query_sql = "INSERT INTO informatics_labs.user (username, fullname, nim, prodi, email, password, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($conn, $query_sql);
     mysqli_stmt_bind_param($stmt, "sssssss",  $username, $namalengkap, $nim, $prodi, $email, $password, $role);
 

@@ -5,18 +5,18 @@ session_start();
 
 
 
-    $query = "SELECT Nama_praktikum, Shift, Hari, Jam, Asprak, Count(Nama_tugas) AS tugas_tersedia, Count(Nama_materi) AS materi_tersedia FROM praktikum JOIN tugas ON praktikum.ID_praktikum = tugas.ID_praktikum JOIN materi ON praktikum.ID_praktikum = materi.ID_praktikum GROUP BY Nama_praktikum";
-    $result = mysqli_query($conn, $query);  
-    while ($row = mysqli_fetch_array($result)) {
-    $praktikum = $row['Nama_praktikum'];
-    $shift = $row['Shift'];
-    $hari = $row['Hari'];
-    $jam = $row['Jam'];
-    $asprak = $row['Asprak'];
-    $tugas = $row['tugas_tersedia'];
-    $materi = $row['materi_tersedia'];
-    }
-    ?>
+    // $query = "SELECT Nama_praktikum, Shift, Hari, Jam, Asprak, Count(Nama_tugas) AS tugas_tersedia, Count(Nama_materi) AS materi_tersedia FROM praktikum JOIN tugas ON praktikum.ID_praktikum = tugas.ID_praktikum JOIN materi ON praktikum.ID_praktikum = materi.ID_praktikum GROUP BY Nama_praktikum";
+    // $result = mysqli_query($conn, $query);  
+    // while ($row = mysqli_fetch_array($result)) {
+    // $praktikum = $row['Nama_praktikum'];
+    // $shift = $row['Shift'];
+    // $hari = $row['Hari'];
+    // $jam = $row['Jam'];
+    // $asprak = $row['Asprak'];
+    // $tugas = $row['tugas_tersedia'];
+    // $materi = $row['materi_tersedia'];
+    // }
+    // ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,8 +75,9 @@ session_start();
     <section class="mt-6 grid grid-cols-1 md:grid-cols-2  gap-6">
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-7">
-        <h2 class="text-xl font-bold"><?php echo $praktikum; ?></h2>
-        <p class="text-gray-400">Shift <?php echo $shift; ?> </p>
+        <h2 class="text-xl font-bold"> Sistem Operasi
+        </h2>
+        <p class="text-gray-400">Shift C</p>
         <img src="../public/img/sistem operasi.webp" alt="" class="w-[600px] h-[210px] object-cover mt-5">
         <div class="flex items-center justify-between mt-4">
             <div>
@@ -101,17 +102,16 @@ session_start();
 
     <div id="details" 
     class="bg-gray-800 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg p-7 w-1/2 z-10 hidden">
-    <h1 class="text-2xl font-bold text-center"><?php echo $praktikum ?></h1>
-    <h3>Shift: <?php echo $shift ?></h3>
-    <h3>Hari: <?php echo $hari ?> </h3>
-    <h3>Pukul: <?php echo $jam ?></h3>
-    <h3>Asprak: <?php echo $asprak ?></h3>
-    <h3>Tugas Tersedia: <?php echo $tugas ?></h3>
-    <h3>Materi Tersedia: <?php echo $materi ?></h3>
+    <!-- dummy -->
+    <h1 class="text-2xl font-bold text-center">Sistem Operasi</h1>
+    <h3>Shift: C</h3>
+    <h3>Hari: Rabu  </h3>
+    <h3>Pukul: 13.00 - 15.00 </h3>
+    <h3>Asprak: Anjay  </h3>
+    <h3>Tugas Tersedia: banyak </h3>
+    <h3>Materi Tersedia:  banyak </h3>
 </div>
 
-
-    
         </div>
     </main>
 </div>

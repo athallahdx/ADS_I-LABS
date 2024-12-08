@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Anda bukan praktikan.";
         exit();
     } 
+
     if ($result->num_rows > 0) {
         // Ambil data pengguna
         $user = $result->fetch_assoc();

@@ -2,14 +2,14 @@
 session_start();
 include 'koneksi.php';
 
-$query = "SELECT Nama_tugas, Deadline, Status, Nama_praktikum FROM tugas JOIN praktikum ON tugas.ID_praktikum = praktikum.ID_praktikum";
-$result = mysqli_query($conn, $query);
-while ($data = mysqli_fetch_array($result)){
-  $praktikum = $data['Nama_praktikum'];
-  $deadline = $data['Deadline'];
-  $tugas = $data['Nama_tugas'];
-  $status = $data['Status'];
-};
+// $query = "SELECT Nama_tugas, Deadline, Status, Nama_praktikum FROM tugas JOIN praktikum ON tugas.ID_praktikum = praktikum.ID_praktikum";
+// $result = mysqli_query($conn, $query);
+// while ($data = mysqli_fetch_array($result)){
+//   $praktikum = $data['Nama_praktikum'];
+//   $deadline = $data['Deadline'];
+//   $tugas = $data['Nama_tugas'];
+//   $status = $data['Status'];
+// };
 
 
 ?>
@@ -80,11 +80,6 @@ while ($data = mysqli_fetch_array($result)){
           </tr>
         </thead>
         <tbody>
-            <tr>
-              <td class="p-4"><?php echo $tugas; ?></td>
-              <td class="p-4"><?php echo $deadline; ?></td>
-              <td class="p-4 text-yellow-400"><?php echo $status; ?></td>
-            </tr>
             <tr>
               <td class="p-4">Buat File</td>
               <td class="p-4">23 Desember 2024</td>
