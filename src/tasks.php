@@ -1,19 +1,3 @@
-<?php
-session_start();
-include 'koneksi.php';
-
-// $query = "SELECT Nama_tugas, Deadline, Status, Nama_praktikum FROM tugas JOIN praktikum ON tugas.ID_praktikum = praktikum.ID_praktikum";
-// $result = mysqli_query($conn, $query);
-// while ($data = mysqli_fetch_array($result)){
-//   $praktikum = $data['Nama_praktikum'];
-//   $deadline = $data['Deadline'];
-//   $tugas = $data['Nama_tugas'];
-//   $status = $data['Status'];
-// };
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,8 +1,3 @@
-<?php
-session_start();
-include 'koneksi.php';
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +49,7 @@ include 'koneksi.php';
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold py-5">Hello! How are you <?php echo $_SESSION['username'];?>?</h1>
+        <h1 class="text-2xl font-bold py-5">Hello! How are you Dimas?</h1>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">

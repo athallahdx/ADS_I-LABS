@@ -1,22 +1,3 @@
-<?php
-include 'koneksi.php';
-
-session_start();
-
-
-
-    // $query = "SELECT Nama_praktikum, Shift, Hari, Jam, Asprak, Count(Nama_tugas) AS tugas_tersedia, Count(Nama_materi) AS materi_tersedia FROM praktikum JOIN tugas ON praktikum.ID_praktikum = tugas.ID_praktikum JOIN materi ON praktikum.ID_praktikum = materi.ID_praktikum GROUP BY Nama_praktikum";
-    // $result = mysqli_query($conn, $query);  
-    // while ($row = mysqli_fetch_array($result)) {
-    // $praktikum = $row['Nama_praktikum'];
-    // $shift = $row['Shift'];
-    // $hari = $row['Hari'];
-    // $jam = $row['Jam'];
-    // $asprak = $row['Asprak'];
-    // $tugas = $row['tugas_tersedia'];
-    // $materi = $row['materi_tersedia'];
-    // }
-    // ?>
 
 <!DOCTYPE html>
 <html lang="en">

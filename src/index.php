@@ -1,178 +1,162 @@
-<?php
-session_start();
-require 'koneksi.php';
 
-$message = ""; // Variabel untuk menyimpan pesan kesalahan
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $role = "Praktikan";
-
-    // Menggunakan prepared statement untuk mencegah SQL Injection
-    $stmt = $conn->prepare("SELECT * FROM user WHERE (email = ? OR username = ?) AND password = ? AND role = 'Praktikan'");
-    $stmt->bind_param("sss", $email, $email, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($role !== "Praktikan") {
-        $message = "Anda bukan praktikan.";
-        exit();
-    } 
-
-    if ($result->num_rows > 0) {
-        // Ambil data pengguna
-        $user = $result->fetch_assoc();
-
-        // Simpan data ke dalam session
-        $_SESSION['namalengkap'] = $user['namalengkap'];
-        $_SESSION['nim'] = $user['nim'];
-        $_SESSION['prodi'] = $user['prodi'];
-        $_SESSION['email'] = $user['email'];
-        $_SESSION['username'] = $user['username'];
-
-        // Redirect ke halaman dashboard
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        $message = "Email atau Password Anda salah. Silakan coba lagi.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylei.css" media="screen" title="no title">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    
-    <title>Login Page</title>
-    <style>
-        /* Pop-up styling */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 400px;
-            z-index: 1000;
-            display: none;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        .popup .close-btn {
-            text-align: right;
-        }
-
-        .popup .close-btn button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.3s;
-        }
-
-        .popup .close-btn button:hover {
-            color: #000;
-        }
-
-        .popup p {
-            margin: 10px 0;
-            font-size: 1rem;
-            text-align: center;
-            color: #333;
-        }
-
-        /* Error message styling */
-        .error-message {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 1rem;
-        }
-
-        /* Overlay styling */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            z-index: 999;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="public/css/styles.css">
 </head>
-<body>
-  
-    <div class="input">
-        <h1>LOGIN</h1>
-        <form action="" method="POST">
-            <div class="box-input">
-                <i class="fas fa-envelope-open-text"></i>
-                <input type="text" name="email" placeholder="Email or Username" required>
-            </div>
-            <div class="box-input">
-                <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" name="login" class="btn-input">Login</button>
-            <div class="bottom">
-                <p>Belum punya akun kan?
-                    <a href="register.php">Register disini</a>
-                </p>
-            </div>
-        </form>
+<body class="bg-gray-900 text-white font-sans">
+
+  <div class="flex h-screen fixed">
+    <aside class="w-64 bg-gray-800 flex flex-col justify-between">
+    <div>
+    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
+
+
+    <nav class="space-y-2 mt-28">
+          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Home
+          </a>
+          <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Informasi Umum
+          </a>
+          <!-- <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
+          </a>
+          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
+          </a>
+          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
+          </a>
+          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
+          </a> -->
+        </nav>
+    </div> 
+
+    <div class="p-4">
+        <a href="login.php">
+        <button class="py-2 px-4 w-full bg-red-700 rounded-md">Login</button>
+        </a>
     </div>
-
-
-    <!-- Overlay -->
-    <div id="overlay" class="overlay" onclick="closePopup()"></div>
-
-    <!-- Popup modal -->
-    <div id="errorPopup" class="popup">
-        <div class="close-btn">
-            <button onclick="closePopup()">×</button>
-        </div>
-
-        <p><?= htmlspecialchars($message) ?></p>
+    </aside>
+</div>
+    <!-- Main Content -->
+    <main class="flex-1 p-6 ml-64">
+    <header class="relative w-full h-64">
+    <div class="relative w-full h-full bg-cover bg-center" style="background-image: url('../public/img/bgrd.jpg');">
+        <h1 class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white">
+            Welcome to the 
+        </h1>
     </div>
+</header>
 
-    <script>
-        // Menampilkan pop-up jika ada pesan kesalahan
-        const errorMessage = "<?= $message ?>";
-        if (errorMessage) {
-            document.getElementById('errorPopup').style.display = 'block';
-            document.getElementById('overlay').style.display = 'block';
-        }
 
-        // Fungsi untuk menutup pop-up
-        function closePopup() {
-            document.getElementById('errorPopup').style.display = 'none';
-            document.getElementById('overlay').style.display = 'none';
-        }
-    </script>
+      <section class="mt-6 h-auto w-3/5 ">
+        <!-- Project Card -->
+        <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-3xl font-bold mb-5">Apa itu<span class="text-blue-600 ml-2">Informatics Labs</span> ?</h2>   
+          <!-- data dummy -->
+          <p>Sistem Operasi Shift C</p>       
+          <p>Struktur data Shift C</p>       
+              <a href="course.php">
+              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
+              </a>
+          </div>
+
+        <!-- Overall Information -->
+        <!-- <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Tugas</h2>
+          <div class="mt-4">
+            data dummy 
+            <div class="text-gray-400 mb-5">Tugas Tersedia: 5</div>
+            <a href="tasks.php">
+            <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
+            </a>
+          </div>
+        </div> -->
+
+        <!-- Team Activity -->
+        <!-- <div class="bg-gray-800 rounded-lg p-4">
+          <h2 class="text-xl font-bold">Materi</h2>
+          <div class="mt-4">
+            <div class="justify-between items-center">
+              data dummy 
+              <div class="text-gray-400 mb-5">Materi Tersedia: 10</div>
+              <a href="subject.php">
+              <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
+              </a>
+            </div>
+          </div>
+        </div> -->
+      </section>
+
+      <!-- Task Activity Table -->
+      <section class="mt-6">
+        <h2 class="text-xl font-bold pt-7">Tugas Tersedia</h2>
+        <table class="w-full mt-4 bg-gray-800 rounded-lg">
+          <thead>
+            <tr class="text-gray-400">
+              <th class="text-left p-4">Praktikum</th>
+              <th class="text-left p-4">Deadline</th>
+              <th class="text-left p-4">Task</th>
+              <th class="text-left p-4">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- isi dari table itu data tugas  -->
+            <!-- yg dibawah dummy -->
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">24 Desember 2024</td>
+              <td class="p-4">Buat File</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+            </tr>
+            <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">20 November 2024</td>
+              <td class="p-4">Buat Stack</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+            </tr>
+            <tr>
+              <td class="p-4">Struktur Data</td>
+              <td class="p-4">22 Desember 2024</td>
+              <td class="p-4">Buat Queue</td>
+              <td class="p-4 text-yellow-400">Belum Selesai</td>
+            </tr>
+            <!-- Repeat rows as needed -->
+          </tbody>
+        </table>
+      </section>
+
+      <section class="mt-6">
+        <h2 class="text-xl font-bold pt-5">Kehadiran</h2>
+        <table class="w-full mt-4 bg-gray-800 rounded-lg">
+          <thead>
+            <tr class="text-gray-400">
+              <th class="text-left p-4">Praktikum</th>
+              <th class="text-left p-4">Shift</th>
+              <th class="text-left p-4">Pertemuan</th>
+              <th class="text-left p-4">Tanggal</th>
+              <th class="text-left p-4">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- dummy -->
+            <tr>
+              <td class="p-4">Sistem Operasi</td>
+              <td class="p-4">Shift C</td>
+              <td class="p-4">Pertemuan 4</td>
+              <td class="p-4">20 November 2024</td>
+              <td class="p-4 text-green-500">Hadir</td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
+  </div>
 </body>
-
 </html>
