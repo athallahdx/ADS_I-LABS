@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks - ILABS</title>
+    <title>Grade - ILABS</title>
     <link rel="stylesheet" href="public/css/styles.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -48,6 +48,10 @@
 
   <!-- Main Content -->
   <main class="flex-1 p-6 ml-64">
+    <header class="flex items-center justify-between mb-5">
+      <h1 class="text-2xl font-bold">Daftar Nilai</h1>
+
+    </header>
     <header class="flex items-center justify-between">
       <h1 class="text-2xl font-bold">Sistem Operasi</h1>
 
@@ -61,8 +65,8 @@
             <th class="text-left p-4">Judul Tugas</th>
             <th class="text-left p-4">Deskripsi</th>
             <th class="text-left p-4">Deadline</th>
-            <th class="text-left p-4">Unggah</th>
-            <th class="text-left p-4">Submit</th>
+            <th class="text-left p-4">Nilai</th>
+            <th class="text-left p-4">Keterangan</th>
             <th class="text-left p-4">Status</th>
 
           </tr>
@@ -72,34 +76,25 @@
               <td class="p-4">Buat File</td>
               <td class="p-4">Buat File pakai CLI</td>
               <td class="p-4">23 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4">90</td>
+              <td class="p-4">Bagus</td>
+              <td class="p-4 text-green-400">Selesai</td>
             </tr>
             <tr>
               <td class="p-4">Hapus Folder</td>
               <td class="p-4">Hapus Folder pakai CLI</td>
               <td class="p-4">20 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4">90</td>
+              <td class="p-4">Bagus</td>
+              <td class="p-4 text-green-400">Selesai</td>
             </tr>
             <tr>
               <td class="p-4">Hapus File</td>
               <td class="p-4">Hapus File pakai CLI</td>
               <td class="p-4">24 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4">90</td>
+              <td class="p-4">Bagus</td>
+              <td class="p-4 text-green-400">Selesai</td>
             </tr>
           </tbody>
         </table>
@@ -116,58 +111,44 @@
           <th class="text-left p-4">Judul Tugas</th>
             <th class="text-left p-4">Deskripsi</th>
             <th class="text-left p-4">Deadline</th>
-            <th class="text-left p-4">Unggah</th>
-            <th class="text-left p-4">Submit</th>
+            <th class="text-left p-4">Nilai</th>
+            <th class="text-left p-4">Keterangan</th>
             <th class="text-left p-4">Status</th>
           </tr>
         </thead>
         <tbody>
         <tr>
-          <td class="p-4">Buat Stack</td>
-          <td class="p-4">Tanpa menggunakan bantuan AI</td>
-          
-              <td class="p-4">20 November 2024</td>
-
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td> 
-            </tr>
-            <tr>
-              <td class="p-4">Buat Queue</td>
-              <td class="p-4">Tanpa menggunakan bantuan AI</td>
-              <td class="p-4">22 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td> 
-            </tr>
-            <tr>
-              <td class="p-4">Buat Linked List</td>
-              <td class="p-4">Tanpa menggunakan bantuan AI</td>
-              <td class="p-4">20 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td> 
-            </tr>
-            <tr>
-              <td class="p-4">Buat BTree</td>
-              <td class="p-4">Tanpa menggunakan bantuan AI</td>
-              <td class="p-4">24 Desember 2024</td>
-              <td class="">
-                <input type="file" name="file" id="file">
-              </td>
-              <td class="p-4"><button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button></td>
-                
-              <td class="p-4 text-yellow-400">Belum Selesai</td> 
-            </tr>
+            <td class="p-4">Buat Stack</td>
+            <td class="p-4">Tanpa menggunakan bantuan AI</td>
+            <td class="p-4">20 November 2024</td>
+            <td class="p-4">90</td>
+            <td class="p-4">Bagus</td>
+            <td class="p-4 text-green-400">Selesai</td>
+        </tr>
+        <tr>
+            <td class="p-4">Buat Queue</td>
+            <td class="p-4">Tanpa menggunakan bantuan AI</td>
+            <td class="p-4">22 Desember 2024</td>
+            <td class="p-4">90</td>
+            <td class="p-4">Bagus</td>
+            <td class="p-4 text-green-400">Selesai</td>
+        </tr>
+        <tr>
+            <td class="p-4">Buat Linked List</td>
+            <td class="p-4">Tanpa menggunakan bantuan AI</td>
+            <td class="p-4">20 Desember 2024</td>
+            <td class="p-4">90</td>
+            <td class="p-4">Bagus</td>
+            <td class="p-4 text-green-400">Selesai</td>
+        </tr>
+        <tr>
+            <td class="p-4">Buat BTree</td>
+            <td class="p-4">Tanpa menggunakan bantuan AI</td>
+            <td class="p-4">24 Desember 2024</td>
+            <td class="p-4">90</td>
+            <td class="p-4">Bagus</td>
+            <td class="p-4 text-green-400">Selesai</td>
+        </tr>
           <!-- Repeat rows as needed -->
         </tbody>
       </table>
