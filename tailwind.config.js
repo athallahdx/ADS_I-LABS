@@ -12,5 +12,8 @@ module.exports = {
       }
     },
   },
+  safelist: [
+    'bg-pink-500',
+  ],
   plugins: [],
 }

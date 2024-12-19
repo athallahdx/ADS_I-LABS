@@ -48,7 +48,7 @@
     </div>
 
     <div class="p-4">
-        <a href="index.php">
+        <a href="<?= BASEURL ?>Login/logout">
         <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
         </a>
     </div>
@@ -57,7 +57,8 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
-        <h1 class="text-2xl font-bold py-5">Hello! How are you Dimas?</h1>
+        <h1 class="text-2xl font-bold py-5">Hello! How are you <?= $data['user']['username'] ?>?</h1>
+        <a href=""></a><i class='bx bxs-user-circle text-5xl'></i>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -65,9 +66,11 @@
         <div class="bg-gray-800 rounded-lg p-4">
           <h2 class="text-xl font-bold mb-5">Praktikum Tersedia</h2>   
           <!-- data dummy -->
-          <p>Sistem Operasi Shift C</p>       
-          <p>Struktur data Shift C</p>       
-              <a href="course.php">
+       
+          <?php foreach($data['praktikum'] as $praktikum): ?>
+            <p><?= $praktikum['nama_praktikum'] . " " . $praktikum['nama_shift']; ?></p>
+          <?php endforeach; ?>
+              <a href="<?= BASEURL ?>PraktikumList/index">
               <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
               </a>
           </div>
@@ -78,7 +81,7 @@
           <div class="mt-4">
             <!-- data dummy -->
             <div class="text-gray-400 mb-5">Tugas Tersedia: 5</div>
-            <a href="tasks.php">
+            <a href="<?= BASEURL ?>Tugas/index">
             <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
             </a>
           </div>
@@ -91,7 +94,7 @@
             <div class="justify-between items-center">
               <!-- data dummy -->
               <div class="text-gray-400 mb-5">Materi Tersedia: 10</div>
-              <a href="subject.php">
+              <a href="<?= BASEURL ?>Materi/index">
               <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
               </a>
             </div>

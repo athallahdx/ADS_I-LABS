@@ -62,6 +62,12 @@ class UserRepository extends BaseRepository {
         return $this->db->resultSet();
     }
 
+    public function getUserData($id) {
+        $this->db->query("SELECT * FROM {$this->table} WHERE id_user = :id");
+        $this->db->bind(':id', $id);
+        return $this->db->single();
+    }
+
     // Example of custom method to deactivate a user
     public function deactivateUser($id) {
         $this->db->query("UPDATE {$this->table} SET status = 'inactive' WHERE id_user = :id");

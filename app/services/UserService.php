@@ -1,15 +1,18 @@
 <?php
 
 require_once __DIR__ . '/../Repositories/UserRepository.php';
+require_once __DIR__ . '/../Repositories/UserProfileRepository.php';
 require_once __DIR__ . '/../models/User.php';
 
 use App\Models\User;
 
 class UserService {
     private $userRepository;
+    private $userProfileRepository;
 
     public function __construct() {
         $this->userRepository = new UserRepository();
+        $this->userProfileRepository = new UserProfileRepository();
     }
 
     public function authenticate($email, $password) {
@@ -105,9 +108,15 @@ class UserService {
 
         return $this->userRepository->findById($userId);
     }
-
     public function logout() {
         Session::start();
         Session::destroy();
+    }
+
+    public function getUserData($id) {
+        $data=[];
+        $data['user']=$this->userRepository->getUserData($id);
+        $data['profil_user']=$this->userProfileRepository->getUserProfileData($id);
+        return $data;
     }
 }

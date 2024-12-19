@@ -1,7 +1,5 @@
 <?php
 
-require_once 'BaseRepository.php';
-
 class UserProfileRepository extends BaseRepository {
 
     protected $table = 'profil_user';
@@ -34,6 +32,12 @@ class UserProfileRepository extends BaseRepository {
         $this->db->query("DELETE FROM {$this->table} WHERE id_user = :id_user");
         $this->db->bind(':id_user', $id_user);
         return $this->db->execute();
+    }
+
+    public function getUserProfileData($id_user){
+        $this->db->query("SELECT * FROM {$this->table} WHERE id_user = :id_user");
+        $this->db->bind(':id_user', $id_user);
+        return $this->db->single();
     }
 }
 
