@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discussion Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="<?= ASSETSCSS?>output.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
@@ -12,7 +12,11 @@
   <div class="flex h-screen fixed">
   <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
-    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
+    <a href="<?= BASEURL ?>LandingPage/index">
+        <div class="p-4 text-xl font-bold text-blue-400">
+          ILABS
+        </div>
+    </a>
 
 
     <nav class="space-y-2 mt-28">

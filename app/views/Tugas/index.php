@@ -12,7 +12,11 @@
 <div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
-    <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
+    <a href="<?= BASEURL ?>LandingPage/index">
+        <div class="p-4 text-xl font-bold text-blue-400">
+          ILABS
+        </div>
+    </a>
 
 
     <nav class="space-y-2 mt-28">
