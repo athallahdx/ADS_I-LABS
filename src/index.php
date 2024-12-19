@@ -44,7 +44,7 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
     <header class="relative w-full h-64">
-    <div class="relative w-full h-full bg-cover bg-center" style="background-image: url('../public/img/aa-gedung-ft-1-1024x600.jpg');">
+    <div class="relative w-full h-full bg-cover bg-center" style="background-image: url('../public/img/gedungF.jpg');">
         <h1 class="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white bg-black bg-opacity-50">
             Welcome to the <span class="text-blue-400 ml-2">Informatics Labs</span>
         </h1>
@@ -56,7 +56,7 @@
         <!-- Project Card -->
         
         <div class="bg-gray-800 rounded-lg p-4 w-2/5 h-[400px] " >
-          <img src="../public/img/programming-background-with-person-working-with-codes-computer.jpg" alt="" class="h-[350px] w-full">
+          <img src="../public/img/coding2.jpg" alt="" class="h-[350px] w-full">
           </div>
 
         <div class="bg-gray-800 rounded-lg p-4 w-3/5 h-[400px] m-auto ">
@@ -81,7 +81,7 @@
           </a> -->
         </div>
         <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-[400px] " >
-          <img src="../public/img/lab-1200x600.jpg" alt="" class="h-[350px] w-full">
+          <img src="../public/img/ftD1.jpg" alt="" class="h-[350px] w-full">
           </div>
       </section>
 
@@ -97,13 +97,13 @@
           </a> -->
         </div>
         <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-[230px] " >
-          <img src="../public/img/ff-lab-ft-2-800x725.jpg" alt="" class="h-full w-full bg-cover bg-center">
+          <img src="../public/img/labft.jpg" alt="" class="h-full w-full bg-cover bg-center">
           </div>
       </section>
 
       <section class="mt-6 h-auto w-full flex gap-5">
         <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-[200px] " >
-          <img src="../public/img/Computer Software Developers at Best Price in Secunderabad - ID_ 4798303.jpg" alt="" class="h-full w-full bg-cover">
+          <img src="../public/img/coding.jpg" alt="" class="h-full w-full bg-cover">
           </div>
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-[200px] m-auto ">
@@ -127,7 +127,7 @@
           </a> -->
         </div>
         <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-[200px] " >
-          <img src="../public/img/Программный код веб-разработки или разработка приложений и веб-дизайн на компьютере для seo 3d ba___.jpg" alt="" class="h-[150px] w-full">
+          <img src="../public/img/code.jpg" alt="" class="h-[150px] w-full">
           </div>
       </section>
     </main>

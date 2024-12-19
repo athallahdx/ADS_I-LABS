@@ -18,24 +18,24 @@
 
 
     <nav class="space-y-2 mt-28">
-          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
-          </a>
-          <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
-          </a>
-          <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
-          </a>
-          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
-          </a>
-          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
-          </a>
-          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
-          </a>
+        <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+        </a>
+        <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
+        </a>
+        <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
+        </a>
+        <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
+        </a>
+        <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
+        </a>
+        <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+        <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
+        </a>
         </nav>
     </div>
 
@@ -62,7 +62,7 @@
         <img src="../public/img/sistem operasi.webp" alt="" class="w-[600px] h-[210px] object-cover mt-5">
         <div class="flex items-center justify-between mt-4">
             <div>
-            <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Details</button>
+            <a href="detailCourse.php"><button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Details</button></a>
             </div>
         </div>
         </div>
@@ -81,9 +81,9 @@
     </section>
 
 
-    <div id="details" 
+    <!-- <div id="details" 
     class="bg-gray-800 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg p-7 w-1/2 z-10 hidden">
-    <!-- dummy -->
+     dummy
     <h1 class="text-2xl font-bold text-center">Sistem Operasi</h1>
     <h3>Shift: C</h3>
     <h3>Hari: Rabu  </h3>
@@ -91,7 +91,7 @@
     <h3>Asprak: Anjay  </h3>
     <h3>Tugas Tersedia: banyak </h3>
     <h3>Materi Tersedia:  banyak </h3>
-</div>
+</div> -->
 
         </div>
     </main>
@@ -100,20 +100,20 @@
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const buttons = document.querySelectorAll('button.bg-teal-500');
-        const detailsDiv = document.getElementById('details');
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const buttons = document.querySelectorAll('button.bg-teal-500');
+    //     const detailsDiv = document.getElementById('details');
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                if (detailsDiv.classList.contains('hidden')) {
-                    detailsDiv.classList.remove('hidden'); // Tampilkan div
-                } else {
-                    detailsDiv.classList.add('hidden'); // Sembunyikan div
-                }
-            });
-        });
-    });
+    //     buttons.forEach(button => {
+    //         button.addEventListener('click', () => {
+    //             if (detailsDiv.classList.contains('hidden')) {
+    //                 detailsDiv.classList.remove('hidden'); // Tampilkan div
+    //             } else {
+    //                 detailsDiv.classList.add('hidden'); // Sembunyikan div
+    //             }
+    //         });
+    //     });
+    // });
 </script>
 
 </html>
