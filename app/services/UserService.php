@@ -1,6 +1,9 @@
 <?php
 
 require_once __DIR__ . '/../Repositories/UserRepository.php';
+require_once __DIR__ . '/../models/User.php';
+
+use App\Models\User;
 
 class UserService {
     private $userRepository;

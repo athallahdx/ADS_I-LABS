@@ -1,6 +1,10 @@
 <?php
 
+// Include the User model (make sure the path is correct)
+require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../services/UserService.php';
+
+use App\Models\User;
 
 class Register extends Controller {
     private $userService;
@@ -37,15 +41,15 @@ class Register extends Controller {
             return;
         }
 
-        // Create User object and register
-        $user = new User(null, $username, $namaLengkap, $nim, $prodi, $email, $password, 'Praktikkan', 'active');
+        // Create the user instance
+        $user = new User(null, $username, $namaLengkap, $nim, $prodi, $email, $password, 'user', 'active');
 
         // Call the user service to register the user
         $result = $this->userService->register($user);
 
         if ($result['status'] === 'success') {
             // Redirect to login page
-            header('Location: /login');
+            header('Location: ' . BASEURL . 'Login/index');
             exit;
         } else {
             // Show error message

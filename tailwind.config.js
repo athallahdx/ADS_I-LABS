@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./public/**/*.html",
-    "./app/views/**/*.php"
+    './app/views/**/*.{php,html}',
+    './public/js/**/*.js',
+    './public/js/*.js',
   ],
   theme: {
     extend: {
       backgroundImage: {
-        'gedungft-1': "url(public/img/gedungft1.jpg)",
+        'gedungft1': "url('/I-LABS/public/img/gedungft1.jpg')", // Referencing the image in the public folder
       }
     },
   },

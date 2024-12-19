@@ -1,10 +1,11 @@
 <?php
-    define("ASSETSURL", "http://localhost/PROJECT_ADS/public/");
-    define("ASSETSCSS", "http://localhost/PROJECT_ADS/public/css/");
-    define("ASSETSJS", "http://localhost/PROJECT_ADS/public/js/");
-    define("ASSETSIMG", "http://localhost/PROJECT_ADS/public/img/");
-    define("BASEURL", "http://localhost/PROJECT_ADS/public/");
-    define("VIEWSURL", "http://localhost/PROJECT_ADS/app/views/");
+    define("ASSETSURL", "http://localhost/I-LABS/public/");
+    define("ASSETSCSS", "http://localhost/I-LABS/public/css/");
+    define("ASSETSJS", "http://localhost/I-LABS/public/js/");
+    define("ASSETSIMG", "http://localhost/I-LABS/public/img/");
+    define("BASEURL", "http://localhost/I-LABS/public/");
+    define("APPURL", "http://localhost/I-LABS/app/");
+    define("VIEWSURL", "http://localhost/I-LABS/app/views/");
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");
