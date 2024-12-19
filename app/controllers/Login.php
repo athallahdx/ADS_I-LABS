@@ -12,7 +12,7 @@ class Login extends Controller {
 
     public function index() {
         // Display the login form view
-        $this->view('login/index');
+        $this->view('Login/index');
     }
 
     public function authenticate() {
@@ -37,16 +37,12 @@ class Login extends Controller {
             Session::set('username', $result['user']['username']);
             Session::set('fullname', $result['user']['fullname']);
 
-            // Redirect based on user role
-            if ($result['user']['role'] === 'Praktikkan') {
-                header('Location: ' . BASEURL . '/praktikkan/dashboard');
-            } else if ($result['user']['role'] === 'Asprak') {
-                header('Location: /asprak/dashboard');
-            }
+            header('Location: ' . BASEURL . 'Dashboard/index');
+
             exit;
         } else {
             // Show error message if authentication fails
-            $this->view('login/index', ['error' => $result['message']]);
+            $this->view('Login/index', ['error' => $result['message']]);
         }
     }
 }

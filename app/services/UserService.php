@@ -15,36 +15,32 @@ class UserService {
     public function authenticate($email, $password) {
         // Find user by email
         $user = $this->userRepository->findByEmail($email);
-
+    
         if (!$user) {
             return [
                 'status' => 'error',
                 'message' => 'User not found.',
             ];
         }
-
+    
         // Verify the password
-        if (!password_verify($password, $user['password'])) {
+        if (password_verify($password, $user['password'])) {
+            return [
+                'status' => 'success',
+                'message' => 'Authentication successful.',
+                'user' => $user, // Pass the entire user data here
+            ];
+        } else {
             return [
                 'status' => 'error',
-                'message' => 'Invalid credentials.',
+                'message' => 'Incorrect password.',
             ];
         }
-
-        // Set session data based on role
-        Session::start();
-        Session::set('user_id', $user['id_user']);
-        Session::set('role', $user['role']);
-        Session::set('username', $user['username']);
-        Session::set('fullname', $user['fullname']);
-
-        // Return success with role
-        return [
-            'status' => 'success',
-            'message' => 'Authentication successful.',
-            'role' => $user['role'],
-        ];
+    
+        // Return success with user details and role
+        
     }
+    
 
     public function register(User $user) {
         // Check if the email or username already exists
