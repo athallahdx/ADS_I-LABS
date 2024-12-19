@@ -45,4 +45,12 @@ class Login extends Controller {
             $this->view('Login/index', ['error' => $result['message']]);
         }
     }
+
+    public function logout() {
+        // Destroy the session
+        Session::destroy();
+
+        header('Location: ' . BASEURL . 'LandingPage/index');
+        exit;
+    }
 }
