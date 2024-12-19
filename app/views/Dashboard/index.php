@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Dashboard</title>
   <link rel="stylesheet" href="<?= ASSETSCSS ?>output.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
@@ -58,6 +59,7 @@
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
         <h1 class="text-2xl font-bold py-5">Hello! How are you Dimas?</h1>
+        <a href=""></a><i class='bx bxs-user-circle text-5xl'></i>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
