@@ -65,4 +65,16 @@ class PraktikumService {
         return $this->materiRepository->selectMateriByProfilId($id_profil);
     }
 
+    public function saveFileForTugas($id_profil, $taskId, $fileName) {
+        return $this->tugasRepository->insertFileForTugas($id_profil, $taskId, $fileName);
+    }
+
+    public function getPraktikumDetail($id_profil, $id_praktikum) {
+        return $this->praktikumRepository->selectPraktikumDetails($id_profil, $id_praktikum);
+    }
+
+    public function getMateriAndTugas($id_profil, $id_praktikum) {
+       return $this->praktikumRepository->selectMateriTugasPengumpulan($id_profil, $id_praktikum);
+    }
+
 }

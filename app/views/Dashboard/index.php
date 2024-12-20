@@ -59,7 +59,9 @@
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
         <h1 class="text-2xl font-bold py-5">Hello! How are you <?= $data['user']['username'] ?>?</h1>
-        <a href=""><i class='bx bxs-user-circle text-5xl'></i></a>
+        <a href="<?= BASEURL ?>UserProfile/index">
+          <img src="<?= UPLOADS ?>userprofile/<?= $data['profil_user']['foto_profil'] ?>" alt="profile image" class="w-20 h-20 rounded-full">
+        </a>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -74,7 +76,7 @@
             <p><?= $praktikum['nama_praktikum'] . " " . $praktikum['nama_shift']; ?></p>
           <?php endforeach; ?>
               <a href="<?= BASEURL ?>PraktikumList/index">
-              <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
+              <button class="px-4 py-2 bg-teal-500 text-white rounded-lg mt-4">Praktikum</button>
               </a>
           </div>
 
@@ -84,9 +86,9 @@
           
           <div class="mt-4">
             <!-- data dummy -->
-            <div class="text-gray-400 mb-5">Tugas Tersedia: <?= $data['total_tugas'] ?></div>
+            <div class="text-white font-semibold mb-5">Tugas Tersedia: <?= $data['total_tugas'] ?></div>
             <a href="<?= BASEURL ?>Tugas/index">
-            <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
+            <button class="px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
             </a>
           </div>
         </div>
@@ -97,9 +99,9 @@
           <div class="mt-4">
             <div class="justify-between items-center">
               <!-- data dummy -->
-              <div class="text-gray-400 mb-5">Materi Tersedia: <?= $data['total_materi']?></div>
+              <div class="text-white font-semibold mb-5">Materi Tersedia: <?= $data['total_materi']?></div>
               <a href="<?= BASEURL ?>Materi/index">
-              <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
+              <button class="px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
               </a>
             </div>
           </div>

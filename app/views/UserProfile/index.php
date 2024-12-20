@@ -9,6 +9,8 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
+<div id="overlay" class="fixed inset-0 w-full h-full bg-black bg-opacity-50 z-50 hidden"></div>
+
      <!-- Sidebar -->
 <div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
@@ -64,41 +66,110 @@
     <section class="mt-6 h-auto w-full flex gap-5">
         <!-- Project Card -->
         
-        <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[250px] " >
-          <img src="../public/img/programming-background-with-person-working-with-codes-computer.jpg" alt="" class="h-[220px] w-full">
+        <div class="bg-gray-800 rounded-lg p-4 w-1/4 h-[250px] " >
+          <img src="<?= UPLOADS ?>userprofile/<?= $data['profil_user']['foto_profil'] ?>" alt="" class="h-[220px] w-full">
           <div class="mt-10">
             <h1 class="text-2xl font-bold">Update Profil</h1>
-            <button class="mt-2 px-3 py-2 bg-teal-500 text-white rounded-lg">Update</button>
+            <button class="mt-2 px-3 py-2 bg-blue-500 text-white rounded-lg" id="update-btn">Update</button>
           </div>
           </div>
+
+          <section class="z-[100] w-1/2 bg-gray-800 p-6 rounded-lg shadow fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden" id="update-container">
+          <div class="grid grid-cols-1  gap-20">
+            <form action="#" method="POST" class="mt-4">  
+
+                <h1 class="text-2xl font-bold text-blue-500 text-center">Update Profil</h1>  
+
+                <label for="name" class="block text-white">Nama :</label>
+                <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
+
+                <label for="username" class="block text-white">Username :</label>
+                <input type="username" id="username" name="username" class="w-full p-2 mt-2 border rounded text-black">
+                
+                <label for="nohp" class="block text-white">No.HP :</label>
+                <input type="text" id="nohp" name="nohp" class="w-full p-2 mt-2 border rounded text-black">
+
+                <div class="mt-4 flex justify-end">
+              <button id="submit" name="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded flex justify-end">Update</button>
+              </div>
+            </form>
+          </div>
+      </section>
+
+      <script>
+        const overlay = document.getElementById('overlay');
+        const updateBtn = document.getElementById('update-btn');
+        const updateForm = document.getElementById('update-container');
+ 
+
+    function openPopup(popup) {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    }
+
+    function closePopup() {
+        updateForm.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+
+    updateBtn.addEventListener('click', (event) => {
+        openPopup(updateForm);
+        event.stopPropagation();
+    });
+
+    // Close popup and overlay when clicking on the overlay
+    overlay.addEventListener('click', () => {
+        closePopup();
+    });
+
+    // Prevent closing when clicking inside the popup
+    updateForm.addEventListener('click', (event) => event.stopPropagation());
+    
+      </script>
 
         <div class="bg-gray-800 rounded-lg p-4 w-3/5 h-[400px] ">
         <h1 class="text-2xl font-bold p-4">Biodata Diri</h1>
           <table>
             <tbody>
-                <tr>
-                <td class="p-4">Nama</td>
-                <td>: Dimas Kendika</td>
-                <!-- <td class="">Dimas Kendika </td> -->
+                <tr class="font-bold">
+                  <td class="p-2">Nama</td>
+                  <td>: <?= $data['user']['fullname'] ?></td>
                 </tr>
-                <tr>
-                <td class="p-4">NIM</td>
-                <td class="">: H1D023083</td>
-                <!-- <td class="">H1D023083</td> -->
+
+                <tr class="font-bold">
+                  <td class="p-2">Username</td>
+                  <td>: <?= $data['user']['username'] ?></td>
                 </tr>
-                <tr>
-                <td class="p-4">Email</td>
-                <td class="">: dkendika1@gmail.com</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
+
+                <tr class="font-bold">
+                  <td class="p-2">Prodi</td>
+                  <td>: <?= $data['user']['prodi'] ?></td>
                 </tr>
-                <tr>
-                <td class="p-4">Semester</td>
-                <td class="">: 2</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
+
+                <tr class="font-bold">
+                  <td class="p-2">NIM</td>
+                  <td class="">: <?= $data['user']['nim'] ?> </td>
+                </tr>
+                
+                <tr class="font-bold">
+                  <td class="p-2">Semester</td>
+                  <td class="">: <?= $data['profil_user']['semester'] ?></td>
+                </tr>
+
+                <tr class="font-bold">
+                <td class="p-2">Email</td>
+                <td class="">: <?= $data['user']['email'] ?></td>
+                </tr>
+
+                <tr class="font-bold">
+                  <td class="p-2">No. HP</td>
+                  <td class="">: <?= $data['profil_user']['nomor_telpon'] ?></td>
                 </tr>
             </tbody>
           </table>
-          </div>      
+          </div>
+          
+          
 
           <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[400px] ">
             <h1 class="text-2xl font-bold">Status Kehadiran</h1>

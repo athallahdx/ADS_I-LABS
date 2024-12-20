@@ -59,13 +59,16 @@
             <div class="bg-gray-800 rounded-lg p-7">
                 <h2 class="text-xl font-bold"><?= $praktikum['nama_praktikum']; ?></h2>
                 <p class="text-gray-400"><?= $praktikum['nama_shift']; ?></p>
-                <p class="text-gray-400"><?= $praktikum['hari'] . ", " . $praktikum['waktu_mulai'] . "-" . $praktikum['waktu_selesai'] ?></p>
+                <p class="text-gray-400"><?= $praktikum['hari'] . ", " . $praktikum['waktu_mulai'] . "-" . $praktikum['waktu_selesai'] . " | " . $praktikum['ruangan'] ?></p>
                 <img src="<?= UPLOADS . "praktikum/" .  $praktikum['image_path']; ?>" alt="<?= $praktikum['nama_praktikum']; ?>" class="w-[600px] h-[210px] object-cover mt-5">
                 <div class="flex items-center justify-between mt-4">
                     <div>
-                        <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Open</button>
+                        <a href="<?= BASEURL ?>PraktikumPage/index/<?= $praktikum['id_praktikum']; ?>">
+                            <button class="mt-2 px-4 py-2 bg-teal-500 text-white rounded-lg">Open</button>
+                        </a>
                     </div>
                 </div>
+
             </div>
         <?php endforeach; ?>
     </section>

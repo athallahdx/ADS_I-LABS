@@ -13,7 +13,7 @@ class App {
             $controllerFile = '../app/controllers/' . ucfirst($url[0]) . '.php';
             if (file_exists($controllerFile)) {
                 $this->controller = ucfirst($url[0]);
-                unset($url[0]);
+                unset($url[0]); // Remove controller from URL
             } else {
                 $this->controller = 'Error';  // Default to Error controller
             }
@@ -22,18 +22,21 @@ class App {
         require_once __DIR__ . '/../controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
 
-        // Method
+        // Method (Check if the second part of URL is a download method)
         if (isset($url[1])) {
-            if (method_exists($this->controller, $url[1])) {
-                $this->method = $url[1];
-                unset($url[1]);
+            // Check if the method is a 'download' method (e.g., downloadTugas, downloadTugasKumpul)
+            if (preg_match('/^download/', $url[1]) && isset($url[2])) {
+                $this->method = $url[1];  // Dynamically set the method based on URL
+                $this->params = [$url[2]]; // Pass the filename as a parameter
+            } elseif (method_exists($this->controller, $url[1])) {
+                $this->method = $url[1];  // Set method if it exists in controller
+                unset($url[1]);  // Remove method from URL
             } else {
-                $this->method = 'index';  // Default to 'index' method
+                $this->method = 'index';  // Default to 'index' method if method does not exist
             }
         }
 
-        // Params
-        $this->params = !empty($url) ? array_values($url) : [];
+        $this->params = array_values($url);  // Pass the rest of
 
         // Call the controller method with params
         call_user_func_array([$this->controller, $this->method], $this->params);
@@ -48,3 +51,4 @@ class App {
         return [];
     }
 }
+

@@ -76,16 +76,40 @@
                     <tbody>
                       <?php foreach ($tasks as $task): ?>
                           <tr>
-                              <td class="p-4"><?= htmlspecialchars($task['judul_tugas']) ?></td>
+                              <td class="p-4">
+                                <a  class="text-blue-500 underline" target="_self"
+                                    href="<?= BASEURL ?>Tugas/downloadTugas/<?= urlencode($task['file_tugas'])?>">
+                                    <?= htmlspecialchars($task['judul_tugas']) ?>
+                                </a>
+                              </td>
                               <td class="p-4"><?= htmlspecialchars($task['deskripsi_tugas']) ?></td>
                               <td class="p-4"><?= htmlspecialchars(date('d M Y', strtotime($task['deadline_tugas']))) ?></td>
-                              <td class="p-4">
-                                  <input type="file" name="file" id="file">
-                              </td>
-                              <td class="p-4">
-                                  <button class="py-2 px-4 bg-blue-500 rounded-md">Submit</button>
-                              </td>
-                              <td class="p-4 <?= $task['status_pengumpulan'] === 'SELESAI' ? 'text-green-400' : 'text-yellow-400' ?>">
+                              <?php if($task['status_pengumpulan']=='BELUM SELESAI'): ?>
+                                    <form method="POST" action="<?= BASEURL ?>Tugas/handleFileUpload" enctype="multipart/form-data">
+                                        <input type="hidden" name="id_tugas" value="<?= $task['id_tugas'] ?>">
+                                        <td class="p-4">
+                                            <input type="file" name="file" id="file">
+                                        </td>
+                                        <td class="p-4">
+                                            <button type="submit" class="py-2 px-4 bg-blue-500 rounded-md">Submit</button>
+                                        </td>
+                                    </form>
+                                <?php else: ?> 
+                                    <td class="p-4">
+                                        <?= $task['waktu_pengumpulan'] ?>
+                                    </td>
+                                    <td class="p-4">
+                                        <a class="text-blue-500 underline" target="_self"
+                                        href="<?= BASEURL ?>Tugas/downloadTugasKumpul/<?= urlencode($task['file_pengumpulan'])?>">
+                                            <?php 
+                                                $position = strpos($task['file_pengumpulan'], '_');
+                                                $fileName = substr($task['file_pengumpulan'], $position+1);
+                                            ?>
+                                            <?= $fileName?>
+                                        </a>
+                                    </td>
+                                <?php endif; ?>
+                              <td class="p-4 font-bold <?= $task['status_pengumpulan'] === 'SELESAI' ? 'text-green-400' : 'text-yellow-400' ?>">
                                   <?= $task['status_pengumpulan'] ?>
                               </td>
                           </tr>

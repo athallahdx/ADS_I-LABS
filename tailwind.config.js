@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gedungft1': "url('/I-LABS/public/img/gedungft1.jpg')", // Referencing the image in the public folder
-      }
+      },
     },
   },
   safelist: [

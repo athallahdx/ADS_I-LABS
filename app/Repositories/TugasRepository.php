@@ -3,6 +3,7 @@
 class TugasRepository extends BaseRepository {
 
     protected $table = 'tugas';
+    protected $table1 = 'pengumpulan_tugas';
 
     // Constructor - Pass the table name to the parent class
     public function __construct() {
@@ -77,7 +78,10 @@ class TugasRepository extends BaseRepository {
                 t.id_tugas, 
                 t.judul_tugas, 
                 t.deskripsi_tugas, 
+                t.file_tugas,
                 t.deadline_tugas, 
+                pt.file_pengumpulan,
+                pt.waktu_pengumpulan,
                 pt.status_pengumpulan
             FROM praktikum p
             JOIN tugas t ON t.id_praktikum = p.id_praktikum
@@ -95,6 +99,21 @@ class TugasRepository extends BaseRepository {
         $this->db->bind(':userProfilId', $userProfilId);
         return $this->db->resultSet();
     }
+    public function insertFileForTugas($id_file, $taskId, $fileName) {
+        $query = "UPDATE {$this->table1}
+                  SET file_pengumpulan = :fileName, 
+                      status_pengumpulan = 'SELESAI', 
+                      waktu_pengumpulan = NOW()
+                  WHERE id_tugas = :taskId AND id_profil = :id_file";
+    
+        $this->db->query($query);
+        $this->db->bind(':taskId', $taskId);
+        $this->db->bind(':id_file', $id_file);
+        $this->db->bind(':fileName', $fileName);
+        
+        return $this->db->execute();
+    }
+    
     
     
 }

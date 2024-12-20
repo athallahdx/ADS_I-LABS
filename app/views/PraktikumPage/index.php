@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Praktikum</title>
+    <title>Praktikum</title>
     <link rel="stylesheet" href="<?= ASSETSCSS ?>output.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -57,9 +57,11 @@
     <!-- Main Content -->
     <main class="flex-1 p-6 ml-64">
     <header class="relative w-full h-20">
-    <div class="relative w-full h-full bg-cover bg-center" style="background-image: url('../public/img/sistem\ operasi.webp');">
+    <div class="relative w-full h-full bg-cover bg-center">
+        <!-- <p><?= var_dump($data) ?></p> -->
         <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50">
-            Sistem Operasi Shift C
+            <?= $data['praktikumDetails']['nama_praktikum'] ?>
+            <?= $data['praktikumDetails']['nama_shift'] ?>
         </h1>
     </div>
 </header>
@@ -67,32 +69,31 @@
 
         <section class="mt-6 h-auto w-full flex gap-5 ">
         <div class="bg-gray-800 rounded-lg p-4 w-full h-[300px] m-auto ">
-            <h2 class="text-3xl font-bold mb-5 mt-5">Deskripsi Praktikum</h2>   
-            <!-- <p class="w-">Informatics Labs adalah sebuah platform website yang dirancang khusus untuk mahasiswa Program Studi Informatika Universitas Jenderal Soedirman dalam mengakses berbagai informasi dan kebutuhan terkait praktikum. Melalui platform ini, mahasiswa dapat dengan mudah melakukan pemilihan shift, mengakses materi yang telah dibagikan, mengunduh tugas, mengunggah laporan, mencatat presensi, serta memperoleh informasi lainnya yang mendukung kegiatan praktikum. Informatics Labs bertujuan untuk memberikan kemudahan dan efisiensi dalam pengelolaan praktikum, sehingga proses pembelajaran menjadi lebih terstruktur dan terintegrasi.</p>        -->
+            <h2 class="text-3xl font-bold mb-5 mt-5">Deskripsi Praktikum</h2> 
             <table>
             <tr>
-                <td class="w-1/2">Kode Praktikum</td>
-                <td class="w-1/2">: SISOP</td>
-            </tr>
-            <tr>
                 <td class="w-1/2">Nama Praktikum</td>
-                <td class="w-1/2">: Sistem Operasi</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['nama_praktikum'] ?></td>
             </tr>
             <tr>
                 <td class="w-1/2">Shift</td>
-                <td class="w-1/2">: Shift C</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['nama_shift'] ?></td>
             </tr>
             <tr>
                 <td class="w-1/2">Dosen Pengampu</td>
-                <td class="w-1/2">: Dr. Siswanto, M.Kom.</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['dosen_pengampu'] ?></td>
             </tr>
             <tr>
                 <td class="w-1/2">Asisten Praktikum</td>
-                <td class="w-1/2">: Anuan</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['fullname'] ?></td>
+            </tr>
+            <tr>
+                <td class="w-1/2">Ruangan</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['ruangan'] ?></td>
             </tr>
             <tr>
                 <td class="w-1/2">Jadwal</td>
-                <td class="w-1/2">: Senin | 14:00 - 16:00 | Laboratorium Baru</td>
+                <td class="w-1/2">: <?= $data['praktikumDetails']['hari'] . ' | ' . $data['praktikumDetails']['waktu_mulai'] . ' - '. $data['praktikumDetails']['waktu_selesai'] ?></td>
             </tr>
             </table>
         </div>      

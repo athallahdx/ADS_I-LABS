@@ -83,6 +83,80 @@ class PraktikumRepository extends BaseRepository {
         $this->db->bind(':semester', $semester);
         return $this->db->resultSet(); // Fetches multiple rows with both praktikum and shift data.
     }
+
+    public function selectPraktikumDetails($id_profil, $id_praktikum) {
+        $query = "SELECT 
+                    p.nama_praktikum,
+                    p.dosen_pengampu,
+                    s.nama_shift,
+                    s.hari,
+                    s.waktu_mulai,
+                    s.waktu_selesai,
+                    s.ruangan,
+                    p.deskripsi_praktikum,
+                    ap.id_profil, 
+                    u.fullname 
+                FROM 
+                    user_shift us
+                JOIN 
+                    shift s ON us.id_shift = s.id_shift
+                JOIN 
+                    praktikum p ON s.id_praktikum = p.id_praktikum
+                JOIN 
+                    asistensi_praktikum ap ON s.id_shift = ap.id_shift
+                JOIN 
+                    profil_user pu ON ap.id_profil = pu.id_profil 
+                JOIN 
+                    user u ON pu.id_user = u.id_user
+                WHERE 
+                    us.id_profil = :id_profil
+                    AND p.id_praktikum = :id_praktikum;
+                ";
+        
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        $this->db->bind(':id_praktikum', $id_praktikum);
+
+        return $this->db->single(); // Fetches a single row with praktikum details
+    }
+
+    public function selectMateriTugasPengumpulan($id_profil, $id_praktikum) {
+        $query = "SELECT 
+                    m.id_materi,
+                    m.judul AS judul_materi,
+                    m.deskripsi_materi,
+                    m.file_materi,
+                    m.tanggal_upload_materi,
+
+                    t.id_tugas,
+                    t.judul_tugas,
+                    t.deskripsi_tugas,
+                    t.file_tugas,
+                    t.tanggal_upload_tugas,
+                    t.deadline_tugas,
+
+                    pt.id_pengumpulan,
+                    pt.file_pengumpulan,
+                    pt.status_pengumpulan,
+                    pt.waktu_pengumpulan,
+                    pt.nilai
+                FROM 
+                    materi m
+                LEFT JOIN 
+                    tugas t ON m.id_praktikum = t.id_praktikum
+                LEFT JOIN 
+                    pengumpulan_tugas pt ON t.id_tugas = pt.id_tugas AND pt.id_profil = :id_profil
+                WHERE 
+                    m.id_praktikum = :id_praktikum
+                ORDER BY 
+                    COALESCE(m.tanggal_upload_materi, t.tanggal_upload_tugas) ASC";
+
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        $this->db->bind(':id_praktikum', $id_praktikum);
+        return $this->db->resultSet(); // Fetches multiple rows with materi, tugas, and pengumpulan data.
+    }
+
     
     
 }

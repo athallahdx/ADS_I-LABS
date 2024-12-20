@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= ASSETSCSS ?>register.css">
     <link rel="stylesheet" href="<?= ASSETSCSS ?>output.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Register Page</title>
 </head>
 
@@ -22,12 +23,11 @@
                 <i class="fas fa-id-card"></i>
                 <input type="text" name="nim" placeholder="NIM" maxlength="9" required>
             </div>
-            <div class="box-input">
-                <i class="fas fa-graduation-cap"></i>
-                    <input type="radio" id="inf" name="prodi" value="Informatika" required>
-                    <label for="inf">Informatika</label>
-                    <input type="radio" id="tekkom" name="prodi" value="Teknik Komputer" required>
-                    <label for="tekkom">Teknik Komputer</label>
+            <div class="flex text-center gap-5 ml-2">
+                <input type="radio" id="inf" name="prodi" value="Informatika" required class="ml-5 mb-5">
+                <label for="inf">Informatika</label>
+                <input type="radio" id="tekkom" name="prodi" value="Teknik Komputer" required class="ml-5 mb-5">    
+                <label for="tekkom" class="mb-5">Teknik Komputer</label>
             </div>
             <div class="box-input">
                 <i class="fas fa-envelope-open-text"></i>
