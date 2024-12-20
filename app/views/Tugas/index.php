@@ -31,9 +31,6 @@
                 <a href="<?= BASEURL ?>Presensi/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
                     <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
                 </a>
-                <a href="<?= BASEURL ?>ForumDiskusi/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
-                    <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
-                </a>
                 <?php if(Session::get('role') == 'Admin'): ?>
                     <a href="<?= BASEURL ?>DashboardAdmin/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
                         <span class="w-5 h-5 bg-pink-500 rounded-full mr-3"></span> Admin Dashboard

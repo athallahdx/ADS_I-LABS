@@ -38,9 +38,6 @@
           <a href="<?= BASEURL ?>Presensi/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
           </a>
-          <a href="<?= BASEURL ?>ForumDiskusi/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
-            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
-          </a>
           <?php if(Session::get('role')=='Admin'): ?>
             <a href="<?= BASEURL ?>DashboardAdmin/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
               <span class="w-5 h-5 bg-pink-500 rounded-full mr-3"></span> Admin Dashboard
@@ -76,34 +73,28 @@
             <tbody>
                 <tr>
                 <td class="p-2">Nama</td>
-                <td>: Dimas Kendika</td>
-                <!-- <td class="">Dimas Kendika </td> -->
+                <td>: <?= $data['user']['fullname'] ?></td>
                 </tr>
+
                 <tr>
                 <td class="p-2">NIM</td>
-                <td class="">: H1D023083</td>
-                <!-- <td class="">H1D023083</td> -->
+                <td class="">: <?= $data['user']['nim'] ?></td>
                 </tr>
+
                 <tr>
                 <td class="p-2">Email</td>
-                <td class="">: dkendika1@gmail.com</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
+                <td class="">: <?= $data['user']['email'] ?></td>
                 </tr>
+
                 <tr>
                 <td class="p-2">Semester</td>
-                <td class="">: 2</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
+                <td class="">: <?= $data['profil_user']['semester'] ?></td>
                 </tr>
+
                 <tr>
                 <td class="p-2">Praktikum yang diampu</td>
                 <td class="">: Sistem Operasi</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
-                </tr> 
-                <tr>
-                <td class="p-2">Motto</td>
-                <td class="">: Semoga semua teraih</td>
-                <!-- <td class="p-4 text-yellow-400">Belum Selesai</td> -->
-                </tr> 
+                </tr>  
             </tbody>
           </table>
           </div>      
