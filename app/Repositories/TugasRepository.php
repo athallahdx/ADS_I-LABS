@@ -80,6 +80,7 @@ class TugasRepository extends BaseRepository {
                 t.deskripsi_tugas, 
                 t.file_tugas,
                 t.deadline_tugas, 
+                pt.id_pengumpulan,
                 pt.file_pengumpulan,
                 pt.waktu_pengumpulan,
                 pt.status_pengumpulan
@@ -99,6 +100,14 @@ class TugasRepository extends BaseRepository {
         $this->db->bind(':userProfilId', $userProfilId);
         return $this->db->resultSet();
     }
+
+    public function selectFileForTugas($id_pengumpulan) {
+        $query = "SELECT * FROM {$this->table1} WHERE id_pengumpulan = :id_pengumpulan";
+        $this->db->query($query);
+        $this->db->bind(':id_pengumpulan', $id_pengumpulan);
+        return $this->db->single();
+    }
+
     public function insertFileForTugas($id_file, $taskId, $fileName) {
         $query = "UPDATE {$this->table1}
                   SET file_pengumpulan = :fileName, 

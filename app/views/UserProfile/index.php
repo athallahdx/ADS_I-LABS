@@ -168,20 +168,36 @@
           
           
 
-          <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[400px] ">
+            <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[400px] ">
             <h1 class="text-2xl font-bold">Status Kehadiran</h1>
-            <h2 class="mt-4">
-                Sistem Operasi | 4/16
-            </h2>
-            <h2 class="mt-4">
-                Struktur Data  | 4/16
-            </h2>
+            <?php 
+            // Initialize summary array
+            $summary = [];
 
-          </div>
+            // Calculate the counts
+            foreach ($data['presensi'] as $presensi) {
+                $key = $presensi['nama_praktikum'] . ' ' . $presensi['nama_shift'] . ' | ';
+                if (!isset($summary[$key])) {
+                    $summary[$key] = ['total' => 0, 'filled' => 0];
+                }
+                $summary[$key]['total']++;
+                if ($presensi['status_presensi'] !== NULL) {
+                    $summary[$key]['filled']++;
+                }
+            }
+
+            // Display the results
+            foreach ($summary as $praktikumShift => $counts): ?>
+                <h2 class="mt-4">
+                    <?= $praktikumShift . " " . $counts['filled'] . "/" . $counts['total'] ?>
+                </h2>
+            <?php endforeach; ?>
+
+            </div>
       </section>
 
       <section class="mt-6 h-auto w-full flex gap-5">
-      <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-auto " >
+      <div class="bg-gray-800 w-full rounded-lg p-4 w-2/4 h-auto " >
         
           <h1 class="text-2xl font-bold p-4">Riwayat Praktikum</h1>
           
@@ -189,27 +205,23 @@
             <thead>
                 <th class=" text-left p-4">Nama Praktikum</th>
                 <th class="text-left p-4">Shift</th>
+                <th class="text-left p-4">Ruangan</th>
                 <th class="text-left p-4">Jadwal</th>
-                <th class="text-left p-4">Nilai</th>
             </thead>
             <tbody>
+              <?php foreach($data['praktikum'] as $praktikum): ?>
                 <tr>
-                <td class="p-4">Algoritma dan Pemograman</td>
-                <td class="p-4">C</td>
-                <td class="p-4">Senin | 14:00 - 16:00 <br>Laboratorium Baru</td>
-                <td class="p-4">A</td>
+                  <td class="p-4"><?= $praktikum['nama_praktikum'] ?></td>
+                  <td class="p-4"><?= $praktikum['nama_shift'] ?></td>
+                  <td class="p-4"><?= $praktikum['ruangan'] ?></td>
+                  <td class="p-4"><?= $praktikum['hari'] . " | " . $praktikum['waktu_mulai'] . "-" . $praktikum['waktu_selesai'] ?></td>
                 </tr>
-                <tr>
-                <td class="p-4">Basis Data</td>
-                <td class="p-4">C</td>
-                <td class="p-4">Selasa| 14:00 - 16:00 <br>Laboratorium Jaringan</td>
-                <td class="p-4">A</td>
-                </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
 
         </div>
-      <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-auto " >
+      <!-- <div class="bg-gray-800 rounded-lg p-4 w-2/4 h-auto " >
         
           <h1 class="text-2xl font-bold p-4">Daftar Nilai</h1>
           
@@ -237,7 +249,7 @@
             </tbody>
           </table>
 
-        </div>
+        </div> -->
 
       </section>
 

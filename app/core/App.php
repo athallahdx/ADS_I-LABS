@@ -27,7 +27,6 @@ class App {
             // Check if the method is a 'download' method (e.g., downloadTugas, downloadTugasKumpul)
             if (preg_match('/^download/', $url[1]) && isset($url[2])) {
                 $this->method = $url[1];  // Dynamically set the method based on URL
-                $this->params = [$url[2]]; // Pass the filename as a parameter
             } elseif (method_exists($this->controller, $url[1])) {
                 $this->method = $url[1];  // Set method if it exists in controller
                 unset($url[1]);  // Remove method from URL

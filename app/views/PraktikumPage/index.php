@@ -96,304 +96,64 @@
         </div>      
         </section>
 
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 1</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
+        <!-- Assuming $data['materitugas'] contains the result set -->
+        <div class="container mx-auto p-6">
+            <h2 class="text-2xl font-bold mb-4">Materi and Tugas Details</h2>
+            
+            <?php foreach ($data['materitugas'] as $item): ?>
+                <div class="mb-6 p-4 bg-white border border-gray-300 rounded-lg shadow-lg">
+                    <!-- Materi Section -->
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold"><?= htmlspecialchars($item['judul_materi']) ?></h3>
+                        <p class="text-gray-600"><?= nl2br(htmlspecialchars($item['deskripsi_materi'])) ?></p>
+                        <?php if ($item['file_materi']): ?>
+                            <a href="<?= BASEURL . 'uploads/materi/' . $item['file_materi'] ?>" class="text-blue-500 underline" target="_blank">Download Materi</a>
+                        <?php endif; ?>
+                        <p class="text-gray-500 mt-2">Uploaded on: <?= date('d M Y', strtotime($item['tanggal_upload_materi'])) ?></p>
+                    </div>
 
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 2</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
+                    <!-- Tugas Section -->
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold"><?= htmlspecialchars($item['judul_tugas']) ?></h4>
+                        <p class="text-gray-600"><?= nl2br(htmlspecialchars($item['deskripsi_tugas'])) ?></p>
+                        <?php if ($item['file_tugas']): ?>
+                            <a href="<?= BASEURL . 'uploads/tugas/' . $item['file_tugas'] ?>" class="text-blue-500 underline" target="_blank">Download Tugas</a>
+                        <?php endif; ?>
+                        <p class="text-gray-500 mt-2">Deadline: <?= date('d M Y', strtotime($item['deadline_tugas'])) ?></p>
+                    </div>
 
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 3</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 4</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 5</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 6</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 7</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 8</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 9</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 10</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 11</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 12</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 13</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 14</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 15</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <h1 class="text-3xl font-bold mt-10">Pertemuan 16</h1>
-        <section class="mt-6 h-auto w-full flex gap-5">
-        <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-            <h2 class="text-3xl font-bold mb-5">Materi</h2>
-            <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Materi 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto">Unduh</button>
-            </div>
-            </div>
-            <div class="bg-gray-800 rounded-lg p-4 w-full h-[400px] m-auto">
-                <h2 class="text-3xl font-bold mb-5">Tugas</h2>
-                <div class="w-full h-10 flex justify-between m-auto items-center p-5" style="border-bottom: 1px solid #6b7280; padding-bottom: 30px;">
-                <h3 class="text-xl font-bold">Tugas 1</h3>
-                <button class="px-3 py-2 bg-teal-500 text-white rounded-lg ml-auto tugas-button">Details</button>
-            </div>
-            </div>
-        </section>
-
-        <div class="bg-gray-800 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg rounded-lg p-7 w-1/2 z-10 hidden tugas-container">
-            <p class="text-right text-red-700 text-xl cursor-pointer close-button">&times;</p>
-            <h2 class="text-3xl font-bold mb-5">Deskripsi Tugas 1</h2>
-            <p class="">Tugas ini untuk membuat anu menggunakan anuan</p>
-            <div class="flex justify-end mt-20">
-                <input type="file">
-                <button class="px-4 py-2 bg-teal-500 text-white rounded-lg">Submit</button>
-            </div>
+                    <!-- Pengumpulan Section -->
+                    <div class="mb-4">
+                        <?php if ($item['id_pengumpulan']): ?>
+                            <h5 class="font-semibold">Pengumpulan Details:</h5>
+                            <p class="text-gray-600">
+                                Status: 
+                                <span class="<?= $item['status_pengumpulan'] === 'SELESAI' ? 'text-green-400' : 'text-yellow-400' ?>">
+                                    <?= htmlspecialchars($item['status_pengumpulan']) ?>
+                                </span>
+                            </p>
+                            <p class="text-gray-600">
+                            <?php 
+                                // Check if 'waktu_pengumpulan' is null or equals Unix epoch (01 Jan 1970 01:00)
+                                if (is_null($item['waktu_pengumpulan']) || $item['waktu_pengumpulan'] == '1970-01-01 01:00:00') {
+                                    echo "Waktu Pengumpulan: Belum Mengumpulkan";
+                                } else {
+                                    echo "Waktu Pengumpulan: " . date('d M Y H:i', strtotime($item['waktu_pengumpulan']));
+                                }
+                            ?>
+                            </p>
+                            <?php if ($item['file_pengumpulan']): ?>
+                                <a href="<?= BASEURL . 'uploads/pengumpulan_tugas/' . $item['file_pengumpulan'] ?>" class="text-blue-500 underline" target="_blank">Download Pengumpulan</a>
+                            <?php endif; ?>
+                            <p class="text-gray-600 mt-2">Nilai: <?= htmlspecialchars($item['nilai']) ?></p>
+                        <?php else: ?>
+                            <p class="text-red-500">Belum mengumpulkan tugas</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
         </div>
+
 
         <script>
             document.addEventListener('DOMContentLoaded', () => {

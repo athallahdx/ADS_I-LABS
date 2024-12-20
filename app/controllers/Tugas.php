@@ -93,8 +93,11 @@ class Tugas extends Controller {
     }
     
     
-    public function downloadTugasKumpul($filename) {
+    public function downloadTugasKumpul($id_pengumpulan) {
         // Construct the file path (make sure to handle file path correctly)
+        $pengumpulan = $this->praktikumService->getFileForTugas($id_pengumpulan);
+        $filename = $pengumpulan['file_pengumpulan'];
+        echo var_dump($pengumpulan);
         $filePath = UPLOADS . "tugas_kumpul/" . basename($filename);
 
         // Debugging: Check the file path

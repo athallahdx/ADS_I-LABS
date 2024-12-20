@@ -139,20 +139,26 @@
             <tr class="text-gray-400">
               <th class="text-left p-4">Praktikum</th>
               <th class="text-left p-4">Shift</th>
-              <th class="text-left p-4">Pertemuan</th>
               <th class="text-left p-4">Tanggal</th>
+              <th class="text-left p-4">Waktu</th>
               <th class="text-left p-4">Status</th>
             </tr>
           </thead>
           <tbody>
             <!-- dummy -->
+            <?php foreach($data['presensi'] as $item): ?>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">Shift C</td>
-              <td class="p-4">Pertemuan 4</td>
-              <td class="p-4">20 November 2024</td>
-              <td class="p-4 text-green-500">Hadir</td>
+              <td class="p-4"><?= $item['nama_praktikum'] ?></td>
+              <td class="p-4"><?= $item['nama_shift'] ?></td>
+              <td class="p-4"><?= date('d-m-Y', strtotime($item['tanggal_presensi'])) ?></td>
+              <td class="p-4"><?= $item['waktu_mulai'] . '-' . $item['waktu_selesai']?></td>
+              <?php if(!$item['status_presensi']==NULL): ?>
+                <td class="p-4 <?= $item['status_presensi'] === 'Hadir' ? 'text-green-400' : 'text-yellow-400' ?>"><?= $item['status_presensi'] ?></td>
+              <?php else: ?>
+                <td class="p-4 text-red-400">Belum Absen</td>
+              <?php endif; ?>
             </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
     </main>

@@ -13,6 +13,8 @@ class UserProfile extends Controller {
         $this->userService = new UserService();
         $this->praktikumService = new PraktikumService();
         $this->userData=$this->userService->getUserData(Session::get('user_id'));
+        $this->userData['praktikum']=$this->praktikumService->getPraktikumByUserId($this->userData['profil_user']['id_profil']);
+        $this->userData['presensi']=$this->praktikumService->getPresensiByUser($this->userData['profil_user']['id_profil']);
     }
 
     public function index() {

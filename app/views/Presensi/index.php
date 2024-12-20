@@ -56,41 +56,58 @@
         <div>
           <h2 class="text-xl font-bold">Hi, Jangan Lupa Isi Presensi Yaa! 👋</h2>
         </div>
-        <div class="flex items-center space-x-4">
-          <span>Presensi Tersedia</span>
-          <div class="text-blue-500 font-bold">1</div>
-        </div>
       </header>
 
       <!-- Kehadiran Section -->
       <section class="mt-6 bg-gray-800 p-6 rounded-lg shadow">
-        <div class="flex justify-between">
-          <div>
-            <h3 class="text-xl font-bold">Sistem Operasi - Shift C</h3>
-            <p class="text-gray-500">Pertemuan 4</p>
-          </div>
-          <div class="text-right">
-            <p class="text-gray-500">Waktu Pertemuan</p>
-            <p>20 November 2024 | 08.00 - 10.00 WIB</p>
-            <span class="inline-block bg-green-500 text-white text-xs px-2 py-1 rounded">Sedang Berlangsung</span>
-          </div>
-        </div>
+          <?php foreach($data['presensi'] as $item): ?>
+            <!-- Start of each item box -->
+            <div class="bg-gray-700 p-4 mb-6 rounded-lg shadow-md">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="text-xl font-bold text-white">
+                    <?= $item['nama_praktikum'] . " " . $item['nama_shift'] ?>
+                  </h3>
+                </div>
+                <div class="text-right">
+                  <p class="text-gray-500">Waktu Pertemuan</p>
+                  <p>
+                    <?= $item['hari'] . ", " ?>
+                    <?= date('d-m-Y', strtotime($item['tanggal_presensi'])) ?>
+                  </p>
+                  <p><?= $item['waktu_mulai'] . '-' . $item['waktu_selesai'] ?></p>
+                </div>
+              </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-6">
-          <!-- Form Kehadiran -->
-          <div>
-            <form action="#" method="POST" class="mt-4">
-              <label for="status" class="block text-gray-500">Status Kehadiran:</label>
-              <select id="status" name="status" class="w-1/2 p-2 mt-2 border rounded text-black">
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Tidak Hadir</option>
-                <option value="Izin">Izin</option>
-              </select>
-              <button type="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Submit</button>
-            </form>
-          </div>
-        </div>
-      </section>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <!-- Form Kehadiran -->
+                <div>
+                  <?php if ($item['status_presensi'] == NULL): ?>
+                    <form action="<?= BASEURL ?>Presensi/handlePresensi" method="POST" class="mt-4">
+                      <input type="hidden" name="id_presensi" value="<?= $item['id_presensi'] ?>">
+                      <label for="status" class="block text-gray-500">Status Kehadiran:</label>
+                      <select id="status" name="status" class="w-1/2 p-2 mt-2 border rounded text-black">
+                        <option value="Hadir">Hadir</option>
+                        <option value="Izin">Izin</option>
+                        <option value="Sakit">Sakit</option>
+                      </select>
+                      <button type="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Submit</button>
+                    </form>
+                  <?php else: ?>
+                    <p class="text-gray-200">Status Kehadiran</p>
+                    <?php if ($item['status_presensi'] == 'Hadir'): ?>
+                      <p class="mb-2 text-2xl font-bold text-green-400"> <?= $item['status_presensi'] ?> </p>
+                    <?php else: ?>
+                      <p class="mb-2 text-2xl font-bold text-yellow-400"> <?= $item['status_presensi'] ?> </p>
+                    <?php endif; ?>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+            <!-- End of each item box -->
+          <?php endforeach; ?>
+        </section>
+
     </main>
   </div>
 </body>

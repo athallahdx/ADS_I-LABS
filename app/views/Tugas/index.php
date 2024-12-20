@@ -74,7 +74,7 @@
                       <?php foreach ($tasks as $task): ?>
                           <tr>
                               <td class="p-4">
-                                <a  class="text-blue-500 underline" target="_self"
+                                <a  class="text-blue-500 font-bold underline" target="_self"
                                     href="<?= BASEURL ?>Tugas/downloadTugas/<?= urlencode($task['file_tugas'])?>">
                                     <?= htmlspecialchars($task['judul_tugas']) ?>
                                 </a>
@@ -97,7 +97,7 @@
                                     </td>
                                     <td class="p-4">
                                         <a class="text-blue-500 underline" target="_self"
-                                        href="<?= BASEURL ?>Tugas/downloadTugasKumpul/<?= urlencode($task['file_pengumpulan'])?>">
+                                        href="<?= BASEURL ?>Tugas/downloadTugasKumpul/<?=$task['id_pengumpulan']?>">
                                             <?php 
                                                 $position = strpos($task['file_pengumpulan'], '_');
                                                 $fileName = substr($task['file_pengumpulan'], $position+1);

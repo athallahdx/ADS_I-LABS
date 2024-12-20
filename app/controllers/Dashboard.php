@@ -21,6 +21,7 @@ require_once __DIR__ . '/../services/PraktikumService.php';
             $this->userData['total_materi'] = $this->praktikumService->getTotalMateriByPraktikumIds($praktikumIds);
 
             $this->userData['tugas'] = $this->praktikumService->getTugasByUserProfil($this->userData['profil_user']['id_profil']);
+            $this->userData['presensi'] = $this->praktikumService->getPresensiByUser($this->userData['profil_user']['id_profil']);
         }
         public function index() {
             if(!Session::exists('user_id')){

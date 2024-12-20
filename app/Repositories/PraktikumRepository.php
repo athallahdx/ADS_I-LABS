@@ -67,6 +67,20 @@ class PraktikumRepository extends BaseRepository {
         return $this->db->resultSet();
     }
 
+    public function selectShiftPraktikumByUserId($id_profil){
+        $query = "
+        SELECT p.*, s.* 
+        FROM {$this->table1} AS p
+        INNER JOIN {$this->table2} AS s ON p.id_praktikum = s.id_praktikum
+        WHERE s.id_shift IN (
+            SELECT us.id_shift
+            FROM {$this->table} AS us
+            WHERE us.id_profil = :id_profil)";
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        return $this->db->resultSet();  
+    }
+
     public function selectShiftPraktikumByUserIdAndSemester($id, $semester) {
         $query = "
             SELECT p.*, s.* 
@@ -157,6 +171,50 @@ class PraktikumRepository extends BaseRepository {
         return $this->db->resultSet(); // Fetches multiple rows with materi, tugas, and pengumpulan data.
     }
 
+    public function selectPresensiByUser($id_profil) {
+        $query = "SELECT 
+                    upr.id_presensi,
+                    upr.status_presensi,
+                    pr.tanggal_presensi,
+                    sh.nama_shift,
+                    sh.hari,
+                    sh.waktu_mulai,
+                    sh.waktu_selesai,
+                    pk.nama_praktikum
+                FROM 
+                    user_presensi upr
+                JOIN 
+                    presensi pr ON upr.id_presensi = pr.id_presensi
+                JOIN 
+                    shift sh ON pr.id_shift = sh.id_shift
+                JOIN 
+                    praktikum pk ON sh.id_praktikum = pk.id_praktikum
+                WHERE 
+                    upr.id_profil = :id_profil
+                ORDER BY 
+                    pr.tanggal_presensi DESC;";
+    
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+    
+        return $this->db->resultSet(); 
+    }
+    
+    public function updatePresensi($id_profil, $id_presensi, $status) {
+        $query = "UPDATE user_presensi 
+                  SET status_presensi = :status, 
+                      waktu_presensi = NOW()
+                  WHERE id_profil = :id_profil 
+                  AND id_presensi = :id_presensi";
+        
+        $this->db->query($query);
+        $this->db->bind(':status', $status);
+        $this->db->bind(':id_profil', $id_profil);
+        $this->db->bind(':id_presensi', $id_presensi);
+        
+        return $this->db->execute();
+    }
+    
     
     
 }

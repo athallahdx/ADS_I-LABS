@@ -21,7 +21,9 @@ class PraktikumService {
         return $this->praktikumRepository->insert($data);
     }
 
-
+    public function getPraktikumByUserId($id_user) {
+        return $this->praktikumRepository->selectShiftPraktikumByUserId($id_user);
+    }
 
     public function getPraktikumByUserIdAndSemester($id_user, $semester) {
         return $this->praktikumRepository->selectShiftPraktikumByUserIdAndSemester($id_user, $semester);
@@ -46,6 +48,10 @@ class PraktikumService {
     // Fetch the tasks for the user based on their profil
     public function getTugasByUserProfil($id_profil) {
         return $this->tugasRepository->getTugasByUserProfil($id_profil);
+    }
+
+    public function getFileForTugas($id_pengumpulan) {
+        return $this->tugasRepository->selectFileForTugas($id_pengumpulan);
     }
     
     public function getTugasByPraktikum($userProfilId) {
@@ -75,6 +81,14 @@ class PraktikumService {
 
     public function getMateriAndTugas($id_profil, $id_praktikum) {
        return $this->praktikumRepository->selectMateriTugasPengumpulan($id_profil, $id_praktikum);
+    }
+
+    public function getPresensiByUser($id_profil) {
+        return $this->praktikumRepository->selectPresensiByUser($id_profil);
+    }
+
+    public function updatePresensi($id_profil, $id_presensi, $status) {
+        return $this->praktikumRepository->updatePresensi($id_profil, $id_presensi, $status);
     }
 
 }
