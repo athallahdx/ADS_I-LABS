@@ -1,25 +1,3 @@
-<?php
-  include 'koneksi.php';
-
-  if (isset($_POST['submit'])) {
-    $id = $_POST['id'];
-    $nama = $_POST['name'];
-    $shift = $_POST['shift'];
-    $hari = $_POST['hari'];
-    $jam = $_POST['jam'];
-    $asprak = $_POST['asprak'];
-
-    $query = "INSERT INTO praktikum (ID_praktikum, Nama_praktikum,Shift,Hari, Jam, Asprak) VALUES ('$id','$nama', '$shift', '$hari', '$jam', '$asprak')";
-    $result = mysqli_query($conn, $query);
-
-    if ($result) {
-      header("Location: praktikum.php");
-      exit();
-    } else {
-      echo "Error: " . mysqli_error($conn);
-    }
-  }
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,33 +9,42 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
- <div class="flex h-screen fixed">
+<div class="flex h-screen fixed">
     <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
     <a href="index.php"><div class="p-4 text-xl font-bold text-blue-400">ILABS</div></a>
 
 
     <nav class="space-y-2 mt-28">
-          <a href="../praktikum/praktikum.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+          <a href="dashboard.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
+          </a>
+          <a href="course.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-green-500 rounded-full mr-3"></span> Praktikum
           </a>
-          <a href="../TUGAS/tugas.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+          <a href="tasks.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-blue-500 rounded-full mr-3"></span> Tugas
           </a>
-          <a href="../MATERI/materi.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+          <a href="subject.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
             <span class="w-5 h-5 bg-red-500 rounded-full mr-3"></span> Materi
           </a>
-          
+          <a href="present.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-purple-500 rounded-full mr-3"></span> Presensi
+          </a>
+          <a href="discuss.php" class="block py-2 px-4 hover:bg-gray-700 flex items-center">
+            <span class="w-5 h-5 bg-yellow-500 rounded-full mr-3"></span> Diskusi
+          </a>
         </nav>
     </div>
 
     <div class="p-4">
-        <a href="../../index.php">
+        <a href="index.php">
         <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
         </a>
     </div>
     </aside>
 </div>
+
 
 <main class="flex-1 p-6 ml-64">
 <header class="flex items-center justify-between">
@@ -68,9 +55,6 @@
           <!-- Form Kehadiran -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
             <form action="#" method="POST" class="mt-4">   
-                <label for="id" class="block text-gray-500">ID:</label>
-                <input type="text" name="id" id="id" class="w-full p-2 mt-2 border rounded text-black">  
-            
                 <label for="name" class="block text-gray-500">Nama Praktikum:</label>
                 <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
 
@@ -86,7 +70,7 @@
                 <label for="asprak" class="block text-gray-500">Asprak:</label>
                 <input type="text" id="asprak" name="asprak" class="w-full p-2 mt-2 border rounded text-black">
 
-              <button type="submit" name="submit" id="submit" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Tambah</button>
+              <button type="submit" name="submit" id="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Tambah</button>
             </form>
           </div>
         </div>
@@ -110,23 +94,12 @@
           </tr>
         </thead>
         <tbody>
-        <?php 
-        
-        include("koneksi.php");
-        $read = mysqli_query($conn, "SELECT * FROM praktikum");
-        
-        while ($data = mysqli_fetch_array($read)) 
-        {
-            echo "<tr>";
-            echo "<td>" .$data['ID_praktikum']."</td>";
-            echo "<td>" .$data['Nama_praktikum']."</td>";
-            echo "<td>" .$data['Shift']."</td>";
-            echo "<td>" .$data['Hari']."</td>";
-            echo "<td>" .$data['Jam']."</td>";
-            echo "<td>" .$data['Asprak']."</td>";
-            echo "<td><a href='delete.php?id=$data[ID_praktikum]'>HAPUS</a></td></tr>";
-        }
-        ?>
+            <td class="p-4">1</td>
+            <td class="p-4">Sistem Operasi</td>
+            <td class="p-4">Shift C</td>
+            <td class="p-4">Senin</td>
+            <td class="p-4">07:00 - 09:00</td>
+            <td class="p-4">Rizky</td>
         </tbody>
       </table>
     </section>
