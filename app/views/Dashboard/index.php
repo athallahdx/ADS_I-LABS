@@ -59,13 +59,15 @@
     <main class="flex-1 p-6 ml-64">
       <header class="flex items-center justify-between">
         <h1 class="text-2xl font-bold py-5">Hello! How are you <?= $data['user']['username'] ?>?</h1>
-        <a href=""></a><i class='bx bxs-user-circle text-5xl'></i>
+        <a href=""><i class='bx bxs-user-circle text-5xl'></i></a>
       </header>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Project Card -->
         <div class="bg-gray-800 rounded-lg p-4">
-          <h2 class="text-xl font-bold mb-5">Praktikum Tersedia</h2>   
+
+          <h2 class="text-xl font-bold mb-5">Praktikum Tersedia</h2>
+         
           <!-- data dummy -->
        
           <?php foreach($data['praktikum'] as $praktikum): ?>
@@ -79,9 +81,10 @@
         <!-- Overall Information -->
         <div class="bg-gray-800 rounded-lg p-4">
           <h2 class="text-xl font-bold">Tugas</h2>
+          
           <div class="mt-4">
             <!-- data dummy -->
-            <div class="text-gray-400 mb-5">Tugas Tersedia: 5</div>
+            <div class="text-gray-400 mb-5">Tugas Tersedia: <?= $data['total_tugas'] ?></div>
             <a href="<?= BASEURL ?>Tugas/index">
             <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Tugas</button>
             </a>
@@ -94,7 +97,7 @@
           <div class="mt-4">
             <div class="justify-between items-center">
               <!-- data dummy -->
-              <div class="text-gray-400 mb-5">Materi Tersedia: 10</div>
+              <div class="text-gray-400 mb-5">Materi Tersedia: <?= $data['total_materi']?></div>
               <a href="<?= BASEURL ?>Materi/index">
               <button class="mt-2 px-4 py-2 mt-5 bg-teal-500 text-white rounded-lg">Materi</button>
               </a>
@@ -107,38 +110,27 @@
       <section class="mt-6">
         <h2 class="text-xl font-bold pt-7">Tugas Tersedia</h2>
         <table class="w-full mt-4 bg-gray-800 rounded-lg">
-          <thead>
-            <tr class="text-gray-400">
-              <th class="text-left p-4">Praktikum</th>
-              <th class="text-left p-4">Deadline</th>
-              <th class="text-left p-4">Task</th>
-              <th class="text-left p-4">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- isi dari table itu data tugas  -->
-            <!-- yg dibawah dummy -->
+        <thead>
+          <tr class="text-gray-400">
+            <th class="text-left p-4">Praktikum</th>
+            <th class="text-left p-4">Deadline</th>
+            <th class="text-left p-4">Task</th>
+            <th class="text-left p-4">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($this->userData['tugas'] as $tugas): ?>
             <tr>
-              <td class="p-4">Sistem Operasi</td>
-              <td class="p-4">24 Desember 2024</td>
-              <td class="p-4">Buat File</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
+              <td class="p-4"><?php echo htmlspecialchars($tugas['nama_praktikum']); ?></td>
+              <td class="p-4"><?php echo date('d F Y', strtotime($tugas['deadline_tugas'])); ?></td>
+              <td class="p-4"><?php echo htmlspecialchars($tugas['judul_tugas']); ?></td>
+              <td class="p-4 font-bold text-<?php echo $tugas['status_pengumpulan'] === 'BELUM SELESAI' ? 'yellow' : 'green'; ?>-400">
+                <?php echo htmlspecialchars($tugas['status_pengumpulan'] ?: 'Belum Dikirim'); ?>
+              </td>
             </tr>
-            <tr>
-              <td class="p-4">Struktur Data</td>
-              <td class="p-4">20 November 2024</td>
-              <td class="p-4">Buat Stack</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
-            </tr>
-            <tr>
-              <td class="p-4">Struktur Data</td>
-              <td class="p-4">22 Desember 2024</td>
-              <td class="p-4">Buat Queue</td>
-              <td class="p-4 text-yellow-400">Belum Selesai</td>
-            </tr>
-            <!-- Repeat rows as needed -->
-          </tbody>
-        </table>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
       </section>
 
       <section class="mt-6">

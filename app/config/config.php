@@ -6,6 +6,7 @@
     define("BASEURL", "http://localhost/I-LABS/public/");
     define("APPURL", "http://localhost/I-LABS/app/");
     define("VIEWSURL", "http://localhost/I-LABS/app/views/");
+    define("UPLOADS", "http://localhost/I-LABS/public/uploads/");
     define("DB_HOST", "localhost");
     define("DB_USER", "root");
     define("DB_PASS", "");
