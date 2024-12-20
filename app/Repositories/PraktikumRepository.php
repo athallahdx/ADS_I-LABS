@@ -214,6 +214,23 @@ class PraktikumRepository extends BaseRepository {
         
         return $this->db->execute();
     }
+
+    public function selectAdminDetail($id_profil){
+        $query = "Select
+                    apr.*,
+                    sh.*,
+                    pr.*
+                  FROM asistensi_praktikum apr
+                    JOIN
+                    shift sh ON apr.id_shift = sh.id_shift
+                    JOIN
+                    praktikum pr ON sh.id_praktikum = pr.id_praktikum
+                  WHERE
+                    apr.id_profil=:id_profil";
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        return $this->db->resultSet();
+    }
     
     
     

@@ -35,6 +35,27 @@ class UserProfile extends Controller {
             $fullname = $_POST['fullname'];
             $username = $_POST['username'];
             $nohp= $_POST['nohp'];
+
+            if (isset($_FILES['fotoprofil']) && $_FILES['fotoprofil']['error'] === UPLOAD_ERR_OK) {
+                $file = $_FILES['fotoprofil'];
+
+                try{
+                    $this->userService->updateUserWithImage($id_user, $id_profil, $fullname, $username, $nohp, $file);
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+
+
+            } else {
+                try {
+                    $this->userService->updateUser($id_user, $id_profil, $fullname, $username, $nohp);
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
+            }
+
+
+
             $this->userService->updateUser($id_user, $id_profil, $fullname, $username, $nohp);
             header('Location: ' . BASEURL . 'UserProfile/index');
         }

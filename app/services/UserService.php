@@ -126,4 +126,36 @@ class UserService {
         
         return $result1 && $result2;
     }
+
+    public function updateUserWithImage($id_user, $id_profil, $fullname, $username, $nohp, $file) {
+        if ($file['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../public/uploads/userprofile/';
+            $fileName = uniqid() . '_' . basename($file['name']);
+            $targetFilePath = $uploadDir . $fileName;
+
+            $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    
+            // Use getimagesize() to validate MIME type
+            $imageInfo = getimagesize($file['tmp_name']);
+            if ($imageInfo && in_array($imageInfo['mime'], $allowedMimeTypes)) {
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
+                }
+                if (move_uploaded_file($file['tmp_name'], $targetFilePath)) {
+                    $result1 = $this->userProfileRepository->updateUser($id_user, $fullname, $username);
+                    $result2 = $this->userProfileRepository->updateUserProfile($id_profil, $nohp);
+                    $result3 = $this->userProfileRepository->updateUserImage($id_profil, $fileName);
+                    
+                    return $result1 && $result2 && $result3;
+                } else {
+                    throw new \Exception("Error moving the uploaded file.");
+                }
+            } else {
+                throw new \Exception("Invalid file type. Only JPG, PNG, and GIF files are allowed.");
+            }
+        } else {
+            throw new \Exception("File upload error.");
+        }
+
+    }
 }

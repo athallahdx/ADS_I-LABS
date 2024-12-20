@@ -30,7 +30,7 @@ class MateriRepository extends BaseRepository {
     }
 
     // Find materi records by Praktikum ID
-    public function findByPraktikumId($id_praktikum) {
+    public function selectByPraktikumId($id_praktikum) {
         $this->db->query("SELECT * FROM {$this->table} WHERE id_praktikum = :id_praktikum");
         $this->db->bind(':id_praktikum', $id_praktikum);
         return $this->db->resultSet();
@@ -74,6 +74,27 @@ class MateriRepository extends BaseRepository {
         $this->db->bind(':id_profil', $id_profil);
     
         return $this->db->resultSet(); // Fetches all rows
+    }
+
+    public function insertMateri($data){
+        $query = 
+            "INSERT INTO {$this->table} 
+            (id_praktikum, judul, deskripsi_materi, file_materi, tanggal_upload_materi) 
+            VALUES (:id_praktikum, :judul, :deskripsi_materi, :file_materi, NOW())";
+
+        $this->db->query($query);
+        $this->db->bind(':id_praktikum', $data['id_praktikum']);
+        $this->db->bind(':judul', $data['judul']);
+        $this->db->bind(':deskripsi_materi', $data['deskripsi_materi']);
+        $this->db->bind(':file_materi', $data['file']);
+        $this->db->execute();
+    }
+
+    public function selectMateriByPraktikumId($id_praktikum) {
+        $query = "SELECT * FROM {$this->table} WHERE id_praktikum = :id_praktikum";
+        $this->db->query($query);
+        $this->db->bind(':id_praktikum', $id_praktikum);
+        return $this->db->resultSet();
     }
     
     

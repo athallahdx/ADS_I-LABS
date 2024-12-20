@@ -65,6 +65,18 @@ class UserProfileRepository extends BaseRepository {
         $this->db->bind(':nomor_telpon', $nohp);
         return $this->db->execute();
     }
+
+    public function updateUserImage($id_profil, $file){
+        $query = "
+            UPDATE {$this->table}
+            SET foto_profil = :foto_profil
+            WHERE id_profil = :id_profil";
+        
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        $this->db->bind(':foto_profil', $file);
+        return $this->db->execute();
+    }
 }
 
 ?>

@@ -31,7 +31,7 @@ class TugasRepository extends BaseRepository {
     }
 
     // Find tugas records by Praktikum ID
-    public function findByPraktikumId($id_praktikum) {
+    public function selectByPraktikumId($id_praktikum) {
         $this->db->query("SELECT * FROM {$this->table} WHERE id_praktikum = :id_praktikum");
         $this->db->bind(':id_praktikum', $id_praktikum);
         return $this->db->resultSet();
@@ -122,6 +122,28 @@ class TugasRepository extends BaseRepository {
         
         return $this->db->execute();
     }
+
+    public function insertTugas($data){
+        $query = 
+           "INSERT INTO {$this->table} 
+            (id_praktikum, judul_tugas, deskripsi_tugas, file_tugas, tanggal_upload_tugas, deadline_tugas) 
+            VALUES (:id_praktikum, :judul, :deskripsi_tugas, :file_tugas, NOW(), :deadline_tugas)";
+
+        $this->db->query($query);
+        $this->db->bind(':id_praktikum', $data['id_praktikum']);
+        $this->db->bind(':judul', $data['judul']);
+        $this->db->bind(':deskripsi_tugas', $data['deskripsi_tugas']);
+        $this->db->bind(':file_tugas', $data['file']);
+        $this->db->bind(':deadline_tugas', $data['deadline']);
+        $this->db->execute();
+   }
+
+   public function selectTugasByPraktikumId($id_praktikum){
+        $query = "SELECT * FROM {$this->table} WHERE id_praktikum = :id_praktikum";
+        $this->db->query($query);
+        $this->db->bind(':id_praktikum', $id_praktikum);
+        return $this->db->resultSet();
+   }
     
     
     

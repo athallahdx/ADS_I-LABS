@@ -73,9 +73,12 @@
 
           <section class="z-[100] w-1/2 bg-gray-800 p-6 rounded-lg shadow fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden" id="update-container">
           <div class="grid grid-cols-1  gap-20">
-            <form action="<?= BASEURL ?>UserProfile/handleUpdate" method="POST" class="mt-4">  
+            <form action="<?= BASEURL ?>UserProfile/handleUpdate" method="POST" enctype="multipart/form-data" class="mt-4">
 
                 <h1 class="text-2xl font-bold text-blue-500 text-center">Update Profil</h1>  
+
+                <label for="name" class="block text-white">Foto Profil</label>
+                <input type="file" id="fotoprofil" name="fotoprofil" class="w-full p-2 mt-2 border rounded text-white">
 
                 <label for="name" class="block text-white">Nama :</label>
                 <input type="text" id="name" name="fullname" value="<?= $data['user']['fullname'] ?>" class="w-full p-2 mt-2 border rounded text-black">

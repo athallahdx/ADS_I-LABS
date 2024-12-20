@@ -23,7 +23,7 @@
 
 
     <nav class="space-y-2 mt-28">
-    <a href="<?= BASEURL ?>Dashboard/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
+          <a href="<?= BASEURL ?>Dashboard/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
           <span class="w-5 h-5 bg-teal-400 rounded-full mr-3"></span> Dashboard
           </a>
           <a href="<?= BASEURL ?>PraktikumList/index" class="py-2 px-4 hover:bg-gray-700 flex items-center">
@@ -93,7 +93,13 @@
 
                 <tr>
                 <td class="p-2">Praktikum yang diampu</td>
-                <td class="">: Sistem Operasi</td>
+                <td class="">: 
+                  <ul class="list-disc">
+                  <?php foreach($data['admin'] as $admin): ?>
+                    <li><?= $admin['nama_praktikum'] . " " . $admin['nama_shift'] ?></li>
+                  <?php endforeach; ?>
+                  </ul>
+                </td>
                 </tr>  
             </tbody>
           </table>
@@ -129,7 +135,7 @@
       <h2 class="text-xl font-bold">Materi dan Tugas</h2>
       <p class="mt-4">Admin dapat menambahkan materi dan tugas kepada praktikan</p>
     </div>
-    <a href="Praktikan/subtasks.php" class="self-end mt-6">
+    <a href="<?= BASEURL ?>AdminAddMateri/index" class="self-end mt-6">
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Materi</button>
     </a>
   </div>

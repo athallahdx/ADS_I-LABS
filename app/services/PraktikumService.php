@@ -91,4 +91,50 @@ class PraktikumService {
         return $this->praktikumRepository->updatePresensi($id_profil, $id_presensi, $status);
     }
 
+    public function getAdminDetail($id_profil) {
+        return $this->praktikumRepository->selectAdminDetail($id_profil);
+    }
+
+    public function insertMateri($data) {
+        if ($data['file']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../public/uploads/materi/';
+            $fileName = basename($data['file']['name']);
+            $targetFilePath = $uploadDir . $fileName;
+
+            if (!move_uploaded_file($data['file']['tmp_name'], $targetFilePath)) {
+                throw new Exception('Failed to move uploaded file.');
+            } else {
+                $data['file'] = $fileName;
+            }
+
+        }
+
+        return $this->materiRepository->insertMateri($data);
+    }
+
+
+    public function insertTugas($data){
+        if ($data['file']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = __DIR__ . '/../../public/uploads/tugas/';
+            $fileName = basename($data['file']['name']);
+            $targetFilePath = $uploadDir . $fileName;
+
+            if (!move_uploaded_file($data['file']['tmp_name'], $targetFilePath)) {
+                throw new Exception('Failed to move uploaded file.');
+            } else {
+                $data['file'] = $fileName;
+            }
+
+        }
+
+        return $this->tugasRepository->insertTugas($data);
+    }
+
+    public function getMateriByPraktikumId($id_praktikum){
+        return $this->materiRepository->selectMateriByPraktikumId($id_praktikum);
+    }
+
+    public function getTugasByPraktikumId($id_praktikum){
+        return $this->tugasRepository->selectTugasByPraktikumId($id_praktikum);
+    }
 }

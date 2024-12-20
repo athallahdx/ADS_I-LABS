@@ -13,6 +13,7 @@
             $this->userService = new UserService();
             $this->praktikumService = new PraktikumService();
             $this->userData=$this->userService->getUserData(Session::get('user_id'));
+            $this->userData['admin']=$this->praktikumService->getAdminDetail($this->userData['profil_user']['id_profil']);
         }
 
         public function index() {
