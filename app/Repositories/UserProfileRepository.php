@@ -3,6 +3,7 @@
 class UserProfileRepository extends BaseRepository {
 
     protected $table = 'profil_user';
+    protected $table1 = 'user';
 
     // Constructor - Pass 'user_profiles' table name to the parent constructor
     public function __construct() {
@@ -38,6 +39,31 @@ class UserProfileRepository extends BaseRepository {
         $this->db->query("SELECT * FROM {$this->table} WHERE id_user = :id_user");
         $this->db->bind(':id_user', $id_user);
         return $this->db->single();
+    }
+
+    public function updateUser($id_user, $fullname, $username){
+        $query = "
+            UPDATE {$this->table1}
+            SET fullname = :fullname, username = :username
+            WHERE id_user = :id_user";
+        
+        $this->db->query($query);
+        $this->db->bind(':id_user', $id_user);
+        $this->db->bind(':fullname', $fullname);
+        $this->db->bind(':username', $username);
+        return $this->db->execute();
+    }
+
+    public function updateUserProfile($id_profil, $nohp){
+        $query = "
+            UPDATE {$this->table}
+            SET nomor_telpon = :nomor_telpon
+            WHERE id_profil = :id_profil";
+        
+        $this->db->query($query);
+        $this->db->bind(':id_profil', $id_profil);
+        $this->db->bind(':nomor_telpon', $nohp);
+        return $this->db->execute();
     }
 }
 

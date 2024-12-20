@@ -119,4 +119,11 @@ class UserService {
         $data['profil_user']=$this->userProfileRepository->getUserProfileData($id);
         return $data;
     }
+
+    public function updateUser($id_user, $id_profil, $fullname, $username, $nohp) {
+        $result1 = $this->userProfileRepository->updateUser($id_user, $fullname, $username);
+        $result2 = $this->userProfileRepository->updateUserProfile($id_profil, $nohp);
+        
+        return $result1 && $result2;
+    }
 }

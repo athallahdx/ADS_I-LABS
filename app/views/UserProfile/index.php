@@ -73,56 +73,25 @@
 
           <section class="z-[100] w-1/2 bg-gray-800 p-6 rounded-lg shadow fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden" id="update-container">
           <div class="grid grid-cols-1  gap-20">
-            <form action="#" method="POST" class="mt-4">  
+            <form action="<?= BASEURL ?>UserProfile/handleUpdate" method="POST" class="mt-4">  
 
                 <h1 class="text-2xl font-bold text-blue-500 text-center">Update Profil</h1>  
 
                 <label for="name" class="block text-white">Nama :</label>
-                <input type="text" id="name" name="name" class="w-full p-2 mt-2 border rounded text-black">
+                <input type="text" id="name" name="fullname" value="<?= $data['user']['fullname'] ?>" class="w-full p-2 mt-2 border rounded text-black">
 
                 <label for="username" class="block text-white">Username :</label>
-                <input type="username" id="username" name="username" class="w-full p-2 mt-2 border rounded text-black">
+                <input type="username" id="username" name="username" value="<?= $data['user']['username'] ?>" class="w-full p-2 mt-2 border rounded text-black">
                 
-                <label for="nohp" class="block text-white">No.HP :</label>
-                <input type="text" id="nohp" name="nohp" class="w-full p-2 mt-2 border rounded text-black">
+                <label for="nohp" class="block text-white">No. HP:</label>
+                <input type="text" id="nohp" name="nohp" value="<?= $data['profil_user']['nomor_telpon'] ?>" class="w-full p-2 mt-2 border rounded text-black">
 
                 <div class="mt-4 flex justify-end">
-              <button id="submit" name="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded flex justify-end">Update</button>
+              <button type="submit" id="submit" name="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded flex justify-end">Update</button>
               </div>
             </form>
           </div>
       </section>
-
-      <script>
-        const overlay = document.getElementById('overlay');
-        const updateBtn = document.getElementById('update-btn');
-        const updateForm = document.getElementById('update-container');
- 
-
-    function openPopup(popup) {
-        popup.style.display = 'block';
-        overlay.style.display = 'block';
-    }
-
-    function closePopup() {
-        updateForm.style.display = 'none';
-        overlay.style.display = 'none';
-    }
-
-    updateBtn.addEventListener('click', (event) => {
-        openPopup(updateForm);
-        event.stopPropagation();
-    });
-
-    // Close popup and overlay when clicking on the overlay
-    overlay.addEventListener('click', () => {
-        closePopup();
-    });
-
-    // Prevent closing when clicking inside the popup
-    updateForm.addEventListener('click', (event) => event.stopPropagation());
-    
-      </script>
 
         <div class="bg-gray-800 rounded-lg p-4 w-3/5 h-[400px] ">
         <h1 class="text-2xl font-bold p-4">Biodata Diri</h1>
@@ -258,6 +227,37 @@
         </div>
     </main>
 </div>
+
+<script>
+    const overlay = document.getElementById('overlay');
+    const updateBtn = document.getElementById('update-btn');
+    const updateForm = document.getElementById('update-container');
+ 
+
+    function openPopup(popup) {
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+    }
+
+    function closePopup() {
+        updateForm.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+
+    updateBtn.addEventListener('click', (event) => {
+        openPopup(updateForm);
+        event.stopPropagation();
+    });
+
+    // Close popup and overlay when clicking on the overlay
+    overlay.addEventListener('click', () => {
+        closePopup();
+    });
+
+    // Prevent closing when clicking inside the popup
+    updateForm.addEventListener('click', (event) => event.stopPropagation());
+    
+</script>
 
 </body>
 </html>

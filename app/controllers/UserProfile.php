@@ -24,4 +24,20 @@ class UserProfile extends Controller {
        $this->view('UserProfile/index', $this->userData);
     }
 
+    public function handleUpdate() {
+        if(!Session::exists('user_id')){
+            header('Location: ' . BASEURL . 'Login/index');
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $id_profil = $this->userData['profil_user']['id_profil'];
+            $id_user = $this->userData['user']['id_user'];
+            $fullname = $_POST['fullname'];
+            $username = $_POST['username'];
+            $nohp= $_POST['nohp'];
+            $this->userService->updateUser($id_user, $id_profil, $fullname, $username, $nohp);
+            header('Location: ' . BASEURL . 'UserProfile/index');
+        }
+    }
+
 }
