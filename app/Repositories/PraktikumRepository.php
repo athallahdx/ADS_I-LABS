@@ -135,9 +135,9 @@ class PraktikumRepository extends BaseRepository {
     }
 
     public function selectMateriTugasPengumpulan($id_profil, $id_praktikum) {
-        $query = "SELECT 
+        $query ="SELECT 
                     m.id_materi,
-                    m.judul AS judul_materi,
+                    m.judul,
                     m.deskripsi_materi,
                     m.file_materi,
                     m.tanggal_upload_materi,
@@ -153,13 +153,19 @@ class PraktikumRepository extends BaseRepository {
                     pt.file_pengumpulan,
                     pt.status_pengumpulan,
                     pt.waktu_pengumpulan,
-                    pt.id_nilai
+                    
+                    pen.id_nilai,
+                    pen.nilai,
+                    pen.komentar,
+                    pen.tanggal_penilaian
                 FROM 
                     materi m
                 LEFT JOIN 
                     tugas t ON m.id_praktikum = t.id_praktikum
                 LEFT JOIN 
                     pengumpulan_tugas pt ON t.id_tugas = pt.id_tugas AND pt.id_profil = :id_profil
+                LEFT JOIN 
+                    penilaian pen ON pt.id_nilai = pen.id_nilai
                 WHERE 
                     m.id_praktikum = :id_praktikum
                 ORDER BY 

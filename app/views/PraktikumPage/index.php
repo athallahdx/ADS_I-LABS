@@ -104,7 +104,7 @@
                 <div class="mb-6 p-4 bg-white border border-gray-300 rounded-lg shadow-lg">
                     <!-- Materi Section -->
                     <div class="mb-4">
-                        <h3 class="text-xl font-semibold"><?= htmlspecialchars($item['judul_materi']) ?></h3>
+                        <h3 class="text-xl font-semibold"><?= htmlspecialchars($item['judul']) ?></h3>
                         <p class="text-gray-600"><?= nl2br(htmlspecialchars($item['deskripsi_materi'])) ?></p>
                         <?php if ($item['file_materi']): ?>
                             <a href="<?= BASEURL . 'uploads/materi/' . $item['file_materi'] ?>" class="text-blue-500 underline" target="_blank">Download Materi</a>
@@ -114,7 +114,7 @@
 
                     <!-- Tugas Section -->
                     <div class="mb-4">
-                        <h4 class="text-lg font-semibold"><?= htmlspecialchars($item['judul_tugas']) ?></h4>
+                        <h4 class="text-lg font-semibold"><?= htmlspecialchars($item['judul']) ?></h4>
                         <p class="text-gray-600"><?= nl2br(htmlspecialchars($item['deskripsi_tugas'])) ?></p>
                         <?php if ($item['file_tugas']): ?>
                             <a href="<?= BASEURL . 'uploads/tugas/' . $item['file_tugas'] ?>" class="text-blue-500 underline" target="_blank">Download Tugas</a>

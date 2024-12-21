@@ -13,7 +13,7 @@
 
      <!-- Sidebar -->
 <div class="flex h-screen fixed">
-<aside class="w-64 bg-gray-800 flex flex-col justify-between">
+  <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
     <a href="<?= BASEURL ?>LandingPage/index">
         <div class="p-4 text-xl font-bold text-blue-400">
@@ -113,7 +113,7 @@
       <h2 class="text-2xl font-bold mb-5">Daftar Praktikan</h2>
       <p>Admin dapat mengubah role dari praktikan</p>
     </div>
-    <a href="Praktikan/praktikan.php" class="self-end mt-6">
+    <a href="<?= BASEURL ?>RoleManager/index" class="self-end mt-6">
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Open</button>
     </a>
   </div>
