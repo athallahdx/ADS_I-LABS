@@ -97,7 +97,7 @@
                                     </td>
                                     <td class="p-4">
                                         <a class="text-blue-500 underline" target="_self"
-                                        href="<?= BASEURL ?>Tugas/downloadTugasKumpul/<?=$task['id_pengumpulan']?>">
+                                        href="<?= BASEURL ?>Tugas/downloadTugasKumpul/<?=$task['file_tugas']?>">
                                             <?php 
                                                 $position = strpos($task['file_pengumpulan'], '_');
                                                 $fileName = substr($task['file_pengumpulan'], $position+1);

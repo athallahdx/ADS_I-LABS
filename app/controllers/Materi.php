@@ -52,33 +52,33 @@ class Materi extends Controller {
     }
 
     public function download($filename) {
-        // Construct the file path
-        $filePath = __DIR__ . "/../../public/uploads/materi/" . basename($filename);
-    
-        // Debugging: Check the file path
-        echo "File Path: " . $filePath;  // This will help identify the file path issue
-        
-        // Check if the file exists
-        if (!file_exists($filePath)) {
-            http_response_code(404);
-            echo "File not found.";
-            return;
-        }
-    
-        // Set headers to prompt file download
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($filePath));
-    
-        // Read the file and output it to the browser
-        readfile($filePath);
-        header('Location: ' . BASEURL . 'Materi/index');
-        exit;
+    // Construct the file path
+    $filePath = __DIR__ . "/../../public/uploads/materi/" . basename($filename);
+
+    // Debugging: Check the file path
+    echo "File Path: " . $filePath;  // This will help identify the file path issue
+
+    // Check if the file exists
+    if (!file_exists($filePath)) {
+        http_response_code(404);
+        echo "File not found.";
+        return;
     }
+
+    // Set headers to prompt file download
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filePath));
+
+    // Read the file and output it to the browser
+    readfile($filePath);
+    exit;
+}
+
     
     
     

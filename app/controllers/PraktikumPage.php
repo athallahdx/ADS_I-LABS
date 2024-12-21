@@ -15,6 +15,10 @@ class PraktikumPage extends Controller {
     }
 
     public function index($id_praktikum) {
+        echo '<pre>';
+        var_dump($id_praktikum); // This will print the params array in a readable format
+        echo '</pre>' ;
+
         if (!Session::exists('user_id')) {
             header('Location: ' . BASEURL . 'Login/index');
             exit;

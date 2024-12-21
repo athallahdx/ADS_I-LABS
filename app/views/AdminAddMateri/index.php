@@ -42,7 +42,7 @@
     </div>
 
     <div class="p-4">
-        <a href="../../index.php">
+        <a href="<?= BASEURL ?>Login/logout">
         <button class="py-2 px-4 w-full bg-red-700 rounded-md">Logout</button>
         </a>
     </div>

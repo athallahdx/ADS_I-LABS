@@ -124,7 +124,7 @@
       <h2 class="text-2xl font-bold">Penilaian</h2>
       <p class="mt-4">Admin dapat menilai tugas praktikan</p>
     </div>
-    <a href="Praktikan/grade.php" class="self-end mt-6">
+    <a href="<?= BASEURL ?>Penilaian/index" class="self-end mt-6">
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Open</button>
     </a>
   </div>

@@ -1,6 +1,9 @@
 Options -Multiviews
-
 RewriteEngine On
+
+# Ensure that the URL passes only if the requested file or directory does not exist
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
+
+# Rewrite all requests to index.php with the query string 'url'
 RewriteRule ^(.*)$ index.php?url=$1 [L]

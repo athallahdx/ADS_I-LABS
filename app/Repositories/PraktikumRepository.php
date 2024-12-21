@@ -153,7 +153,7 @@ class PraktikumRepository extends BaseRepository {
                     pt.file_pengumpulan,
                     pt.status_pengumpulan,
                     pt.waktu_pengumpulan,
-                    pt.nilai
+                    pt.id_nilai
                 FROM 
                     materi m
                 LEFT JOIN 
