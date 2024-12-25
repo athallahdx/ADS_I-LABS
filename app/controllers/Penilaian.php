@@ -14,7 +14,7 @@
             $this->praktikumService = new PraktikumService();
             $this->userData=$this->userService->getUserData(Session::get('user_id'));
             $this->userData['admin']=$this->praktikumService->getAdminDetail($this->userData['profil_user']['id_profil']);
-            $this->userData['tugas'] = $this->praktikumService->getTugasByPraktikumId($this->userData['admin'][0]['id_praktikum']);
+            $this->userData['tugas'] = $this->praktikumService->getTugasNilaiByPraktikumId($this->userData['admin'][0]['id_praktikum']);
         }
 
         public function index() {

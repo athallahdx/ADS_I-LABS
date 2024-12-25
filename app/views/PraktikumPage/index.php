@@ -55,7 +55,6 @@
     <main class="flex-1 p-6 ml-64">
     <header class="relative w-full h-20">
     <div class="relative w-full h-full bg-cover bg-center">
-        <!-- <p><?= var_dump($data) ?></p> -->
         <h1 class="absolute inset-0 flex items-center justify-center text-4xl font-bold text-white bg-black bg-opacity-50">
             <?= $data['praktikumDetails']['nama_praktikum'] ?>
             <?= $data['praktikumDetails']['nama_shift'] ?>
@@ -101,7 +100,7 @@
             <h2 class="text-2xl font-bold mb-4">Materi and Tugas Details</h2>
             
             <?php foreach ($data['materitugas'] as $item): ?>
-                <div class="mb-6 p-4 bg-white border border-gray-300 rounded-lg shadow-lg">
+                <div class="mb-6 p-4 bg-grey-600 border border-gray-300 rounded-lg shadow-lg">
                     <!-- Materi Section -->
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold"><?= htmlspecialchars($item['judul']) ?></h3>

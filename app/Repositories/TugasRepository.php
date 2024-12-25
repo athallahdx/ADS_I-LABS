@@ -144,7 +144,41 @@ class TugasRepository extends BaseRepository {
         $this->db->bind(':id_praktikum', $id_praktikum);
         return $this->db->resultSet();
    }
-    
-    
+   
+   public function selectTugasNilaiByPraktikumId($id_praktikum){
+    $query = "SELECT
+                    tu.id_tugas,
+                    tu.judul_tugas,
+                    tu.deadline_tugas,
+                    pr.id_praktikum,
+                    pr.nama_praktikum,
+                    pt.id_tugas, 
+                    pt.id_profil,
+                    pt.waktu_pengumpulan,
+                    pt.file_pengumpulan,
+                    pt.status_pengumpulan,
+                    pt.id_nilai,
+                    ni.*,
+                    us.fullname
+                FROM tugas tu
+                JOIN 
+                    praktikum pr ON tu.id_praktikum = pr.id_praktikum
+                JOIN 
+                    pengumpulan_tugas pt ON tu.id_tugas = pt.id_tugas
+                JOIN 
+                    penilaian ni ON pt.id_nilai = ni.id_nilai
+                JOIN 
+                    profil_user usp ON usp.id_profil = pt.id_profil
+                JOIN 
+                    user us ON us.id_user = usp.id_user
+                WHERE 
+                    tu.id_praktikum = :id_praktikum AND pt.status_pengumpulan = 'SELESAI'
+            ";
+
+
+        $this->db->query($query);
+        $this->db->bind(':id_praktikum', $id_praktikum);
+        return $this->db->resultSet();
+   }
     
 }

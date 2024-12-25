@@ -137,4 +137,8 @@ class PraktikumService {
     public function getTugasByPraktikumId($id_praktikum){
         return $this->tugasRepository->selectTugasByPraktikumId($id_praktikum);
     }
+
+    public function getTugasNilaiByPraktikumId($id_praktikum){
+        return $this->tugasRepository->selectTugasNilaiByPraktikumId($id_praktikum);
+    }
 }

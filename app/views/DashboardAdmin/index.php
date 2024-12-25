@@ -16,7 +16,7 @@
   <aside class="w-64 bg-gray-800 flex flex-col justify-between">
     <div>
     <a href="<?= BASEURL ?>LandingPage/index">
-        <div class="p-4 text-xl font-bold text-blue-400">
+        <div class="p-4 text-4xl font-bold text-center text-blue-400">
           ILABS
         </div>
     </a>
@@ -93,12 +93,10 @@
 
                 <tr>
                 <td class="p-2">Praktikum yang diampu</td>
-                <td class="">: 
-                  <ul class="list-disc">
+                <td class="ps-3">: 
                   <?php foreach($data['admin'] as $admin): ?>
-                    <li><?= $admin['nama_praktikum'] . " " . $admin['nama_shift'] ?></li>
+                    <?= $admin['nama_praktikum'] . " " . $admin['nama_shift'] ?>
                   <?php endforeach; ?>
-                  </ul>
                 </td>
                 </tr>  
             </tbody>
@@ -107,6 +105,7 @@
       </section>
 
       <section class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <?php if($data['user']['role']=='Super Admin'): ?>
   <!-- Daftar Praktikan -->
   <div class="bg-gray-800 rounded-lg p-4 flex flex-col justify-between">
     <div>
@@ -117,6 +116,8 @@
       <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Open</button>
     </a>
   </div>
+  <?php endif; ?>
+
 
   <!-- Penilaian -->
   <div class="bg-gray-800 rounded-lg p-4 flex flex-col justify-between">

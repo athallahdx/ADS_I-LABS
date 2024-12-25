@@ -97,75 +97,86 @@
       </section>
 
         <div class="bg-gray-800 rounded-lg p-4 w-3/5 h-[400px] ">
-        <h1 class="text-2xl font-bold p-4">Biodata Diri</h1>
+          <h1 class="text-2xl font-bold p-4">Biodata Diri</h1>
           <table>
-            <tbody>
-                <tr class="font-bold">
-                  <td class="p-2">Nama</td>
-                  <td>: <?= $data['user']['fullname'] ?></td>
-                </tr>
+              <tbody>
+                  <tr class="font-bold">
+                    <td class="p-2">Nama</td>
+                    <td>: <?= $data['user']['fullname'] ?></td>
+                  </tr>
 
-                <tr class="font-bold">
-                  <td class="p-2">Username</td>
-                  <td>: <?= $data['user']['username'] ?></td>
-                </tr>
+                  <tr class="font-bold">
+                    <td class="p-2">Username</td>
+                    <td>: <?= $data['user']['username'] ?></td>
+                  </tr>
 
-                <tr class="font-bold">
-                  <td class="p-2">Prodi</td>
-                  <td>: <?= $data['user']['prodi'] ?></td>
-                </tr>
+                  <tr class="font-bold">
+                    <td class="p-2">Prodi</td>
+                    <td>: <?= $data['user']['prodi'] ?></td>
+                  </tr>
 
-                <tr class="font-bold">
-                  <td class="p-2">NIM</td>
-                  <td class="">: <?= $data['user']['nim'] ?> </td>
-                </tr>
-                
-                <tr class="font-bold">
-                  <td class="p-2">Semester</td>
-                  <td class="">: <?= $data['profil_user']['semester'] ?></td>
-                </tr>
+                  <tr class="font-bold">
+                    <td class="p-2">NIM</td>
+                    <td class="">: <?= $data['user']['nim'] ?> </td>
+                  </tr>
+                  
+                  <tr class="font-bold">
+                    <td class="p-2">Semester</td>
+                    <td class="">: <?= $data['profil_user']['semester'] ?></td>
+                  </tr>
 
-                <tr class="font-bold">
-                <td class="p-2">Email</td>
-                <td class="">: <?= $data['user']['email'] ?></td>
-                </tr>
+                  <tr class="font-bold">
+                  <td class="p-2">Email</td>
+                  <td class="">: <?= $data['user']['email'] ?></td>
+                  </tr>
 
-                <tr class="font-bold">
-                  <td class="p-2">No. HP</td>
-                  <td class="">: <?= $data['profil_user']['nomor_telpon'] ?></td>
-                </tr>
-            </tbody>
+                  <tr class="font-bold">
+                    <td class="p-2">No. HP</td>
+                    <td class="">: <?= $data['profil_user']['nomor_telpon'] ?></td>
+                  </tr>
+              </tbody>
           </table>
-          </div>
-          
-          
+        </div>
 
-            <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[400px] ">
-            <h1 class="text-2xl font-bold">Status Kehadiran</h1>
-            <?php 
-            // Initialize summary array
-            $summary = [];
+          <div class="bg-gray-800 rounded-lg p-4 w-1/5 h-[400px]">
+            <h1 class="text-2xl font-bold text-white mb-4">Status Kehadiran</h1>
+            <div class="space-y-4">
+                <?php 
+                // Initialize summary array
+                $summary = [];
 
-            // Calculate the counts
-            foreach ($data['presensi'] as $presensi) {
-                $key = $presensi['nama_praktikum'] . ' ' . $presensi['nama_shift'] . ' | ';
-                if (!isset($summary[$key])) {
-                    $summary[$key] = ['total' => 0, 'filled' => 0];
+                // Calculate the counts
+                foreach ($data['presensi'] as $presensi) {
+                    $key = $presensi['nama_praktikum'] . ' ' . $presensi['nama_shift'];
+                    if (!isset($summary[$key])) {
+                        $summary[$key] = ['total' => 0, 'filled' => 0];
+                    }
+                    $summary[$key]['total']++;
+                    if ($presensi['status_presensi'] !== 'Alpa') {
+                        $summary[$key]['filled']++;
+                    }
                 }
-                $summary[$key]['total']++;
-                if ($presensi['status_presensi'] !== NULL) {
-                    $summary[$key]['filled']++;
-                }
-            }
 
-            // Display the results
-            foreach ($summary as $praktikumShift => $counts): ?>
-                <h2 class="mt-4">
-                    <?= $praktikumShift . " " . $counts['filled'] . "/" . $counts['total'] ?>
-                </h2>
-            <?php endforeach; ?>
-
+                // Display the results
+                foreach ($summary as $praktikumShift => $counts): ?>
+                    <div class="bg-gray-700 px-3 py-2 rounded-lg shadow-md">
+                        <h2 class="text-lg font-semibold text-white"><?= $praktikumShift ?></h2>
+                        <p class="text-gray-300">
+                            Kehadiran: <span class="text-green-400 font-bold"><?= $counts['filled'] ?></span>
+                            /
+                            <span class="text-white-500"><?= $counts['total'] ?></span>
+                        </p>
+                        <div class="w-full bg-gray-600 h-2 rounded-full mt-2">
+                            <div 
+                                class="bg-green-400 h-2 rounded-full" 
+                                style="width: <?= ($counts['filled'] / $counts['total']) * 100 ?>%;"
+                            ></div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
+        </div>
+
       </section>
 
       <section class="mt-6 h-auto w-full flex gap-5">

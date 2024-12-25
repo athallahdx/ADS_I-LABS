@@ -63,49 +63,29 @@
       <table class="w-full mt-4 bg-gray-800 rounded-lg border border-white">
         <thead>
           <tr class="text-gray-400">
+            <th class="text-left p-4 border border-white">Nama Mahasiswa</th>            
             <th class="text-left p-4 border border-white">Judul Tugas</th>
-            <th class="text-left p-4 border border-white">Deskripsi</th>
-            <th class="text-left p-4 border border-white">Deadline</th>
+            <th class="text-left p-4 border border-white">File Pengumpulan</th>
+            <th class="text-left p-4 border border-white">Tanggal Pengumpulan</th>
+            <th class="text-left p-4 border border-white">Komentar</th>
             <th class="text-left p-4 border border-white">Nilai</th>
-            <th class="text-left p-4 border border-white">Keterangan</th>
-            <th class="text-left p-4 border border-white">Status</th>
             <th class="text-left p-4 border border-white">Aksi</th>
           </tr>
         </thead>
         <tbody>
+          <?php foreach($data['tugas'] as $tugas): ?>
             <tr>
-              <td class="p-4 border border-white">Buat File</td>
-              <td class="p-4 border border-white">Buat File pakai CLI</td>
-              <td class="p-4 border border-white">23 Desember 2024</td>
-              <td class="p-4 border border-white">90</td>
-              <td class="p-4 border border-white">Bagus</td>
-              <td class="p-4 border border-white text-green-400">Selesai</td>
+              <td class="p-4 border border-white"><?= $tugas['fullname'] ?></td>
+              <td class="p-4 border border-white"><?= $tugas['judul_tugas'] ?></td>
+              <td class="p-4 border border-white"><?= $tugas['file_pengumpulan'] ?></td>
+              <td class="p-4 border border-white"><?= $tugas['waktu_pengumpulan'] ?></td>
+              <td class="p-4 border border-white"><?= $tugas['komentar'] ?></td>
+              <td class="p-4 border border-white"><?= $tugas['nilai'] ?></td>
               <td class="p-4 border border-white text-white">
                 <button class="py-2 px-4 w-full bg-blue-700 rounded-md" id="nilai-button">Nilai</button>
               </td>
             </tr>
-            <tr>
-              <td class="p-4 border border-white">Hapus Folder</td>
-              <td class="p-4 border border-white">Hapus Folder pakai CLI</td>
-              <td class="p-4 border border-white">20 Desember 2024</td>
-              <td class="p-4 border border-white">90</td>
-              <td class="p-4 border border-white">Bagus</td>
-              <td class="p-4 border border-white text-green-400">Selesai</td>
-              <td class="p-4 border border-white text-white">
-                <button class="py-2 px-4 w-full bg-blue-700 rounded-md" id="nilai-button">Nilai</button>
-              </td>
-            </tr>
-            <tr>
-              <td class="p-4 border border-white">Hapus File</td>
-              <td class="p-4 border border-white">Hapus File pakai CLI</td>
-              <td class="p-4 border border-white">24 Desember 2024</td>
-              <td class="p-4 border border-white">90</td>
-              <td class="p-4 border border-white">Bagus</td>
-              <td class="p-4 border border-white text-green-400">Selesai</td>
-              <td class="p-4 border border-white text-white">
-                <button class="py-2 px-4 w-full bg-blue-700 rounded-md" id="nilai-button">Nilai</button>
-              </td>
-            </tr>
+          <?php endforeach; ?>
           </tbody>
         </table>
     </section>
